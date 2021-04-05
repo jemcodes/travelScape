@@ -7,15 +7,7 @@ const { getUserToken } = require('../auth');
 
 const { asyncHandler, handleValidationErrors, csrfProtection } = require('./utils');
 
-// GET for signup
-router.get('/sign-up', csrfProtection, asyncHandler(async (req, res, next) => {
-  const user = db.User.build();
-  res.render('sign-up', {
-    title: 'Sign Up',
-    user,
-    csrfToken: req.csrfToken(),
-  })
-}));
+
 
 const validateUserName =
   check('pen_name')
@@ -38,6 +30,16 @@ const validateEmailAndPassword = [
     .withMessage('Please provide a password.')
 ]
 
+// GET for signup
+router.get('/sign-up', csrfProtection, asyncHandler(async (req, res, next) => {
+  const user = db.User.build();
+  res.render('sign-up', {
+    title: 'Sign Up',
+    user,
+    csrfToken: req.csrfToken(),
+  })
+}));
+
 //User signing Up
 router.post('/', validateUserName, validateEmailAndPassword, handleValidationErrors, asyncHandler(async (req, res) => {
   const { pen_name, email, password } = req.body;
@@ -58,14 +60,14 @@ router.post('/', validateUserName, validateEmailAndPassword, handleValidationErr
 
 
 // GET for log in
-// router.get('/log-up', csrfProtection, asyncHandler(async (req, res, next) => {
-//   const user = db.User.build();
-//   res.render('sign-up', {
-//     title: 'Sign Up',
-//     user,
-//     csrfToken: req.csrfToken(),
-//   })
-// }));
+router.get('/log-in', csrfProtection, asyncHandler(async (req, res, next) => {
+  const user = db.User.build();
+  res.render('log-in', {
+    title: 'Log In',
+    user,
+    csrfToken: req.csrfToken(),
+  })
+}));
 
 //User Logging in
 router.post(
