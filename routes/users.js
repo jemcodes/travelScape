@@ -8,7 +8,7 @@ const { getUserToken } = require('../auth');
 const { asyncHandler, handleValidationErrors } = require('./utils');
 
 const validateUserName = 
-  check('pen_pal')
+  check('pen_name')
     .exists({checkFalsy: true})
     .withMessage('Please provide a Pen Name.')
     .isLength({max: 20})
@@ -32,15 +32,15 @@ const validateEmailAndPassword = [
 router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
-
+//User signing Up
 router.post('/', validateUserName, validateEmailAndPassword, handleValidationErrors, asyncHandler(async (req, res) => {
-  const { pen_pal, email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10)
+  const { pen_name, email, password } = req.body;
+  const hashedPW = await bcrypt.hash(password, 10)
 
   const user = await db.User.create({
-    pen_pal,
+    pen_name,
     email,
-    hashedPassword
+    hashedPW
   });
 
   const token = getUserToken(user) 
@@ -49,5 +49,27 @@ router.post('/', validateUserName, validateEmailAndPassword, handleValidationErr
     token
   })
 }));
+//User Logging in
+router.post(
+  '/token',
+  validateEmailAndPassword,
+  asyncHandler(async (req, res, next) => {
+    const {email, password} = req.body;
+    const user = await db.User.findOne({
+      where:{
+        email
+      }
+    })
+    if(!user || !user.validatePassword(password)){
+      const err = new Error("Login failed")
+      err.status = 401;
+      err.title = "Login failed";
+      err.errors = ["The provided credentials were invalid."]
+      return next(err)
+    }
+    const token = getUserToken(user)
+    res.json({token, user:{id: user.id}})
+  })
+)
 
 module.exports = router;

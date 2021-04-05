@@ -4,6 +4,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'a/A Express Skeleton Home' });
+  // res.json({ message: "TESTING INDEX"})
 });
 
 module.exports = router;
