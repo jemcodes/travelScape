@@ -1,11 +1,14 @@
 'use strict';
 
+const {
+  articlesData
+} = require('../../seed-data');
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Articles', [{
-      name: 'John Doe',
-      isBetaMember: false
-    }], {});
+    const startingArticles = articlesData;
+
+    return queryInterface.bulkInsert('Articles', startingArticles, {});
   },
 
   down: (queryInterface, Sequelize) => {
