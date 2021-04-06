@@ -5,13 +5,14 @@ include utils.pug
 block content 
 	div(class="errors-container")
 	h2 Sign Up 
-	form(class="sign-up-form")
 		+validationErrorSummary(errors)
-		form(action='/signup' method='post')
+		form(action='/users/signup' method='post')
 			input(type='hidden' name='_csrf' value=csrfToken)
 			+field('Pen Name', 'pen_name', user.pen_name)
 			+field('Email Address', 'email', user.email)
-			+field('Password', 'password', user.password)
-			+field('Confirm Password', 'password', user.password)
+			+field('Password', 'password', user.password, 'password')
+			+field('Confirm Password', 'confirmPassword', '', 'password')
 			button(type='submit') Hit the Road!
-			a(href='/users/log-in') Already have an account? Log in here.
+			a(href='/' class='btn btn-primary') Cancel
+		div 
+			a(href='/users/login') Already have an account? Log in here.
