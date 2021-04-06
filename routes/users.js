@@ -59,6 +59,7 @@ const loginValidators = [
 ];
 
 
+
 // GET for signup
 router.get('/signup', csrfProtection, (req, res) => {
   const user = db.User.build();
@@ -90,7 +91,7 @@ router.post('/signup', csrfProtection, userValidators,
       user.hashedPW = hashedPW;
       await user.save();
       loginUser(req, res, user);
-      res.redirect('/');
+      res.redirect('/newsfeed');
     } else {
       const errors = validatorErrors.array().map((error) => error.msg);
       res.render('sign-up', {
