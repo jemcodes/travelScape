@@ -17,31 +17,22 @@ const articleNotFoundError = (id) => {
     return err;
 }
 
-
-
-
-
-
-
-
-
-
 router.get('/', csrfProtection, asyncHandler (async (req, res, next) => {
-    res.render('articles', {title: 'Read Articles'});
+    res.render('newsfeed', {title: 'Read Articles', csrfToken: req.csrfToken()});
 }))
 
 router.get('/:id(\\d+)', csrfProtection, asyncHandler (async (req, res, next) => {
     const articleId = parseInt(req.params.id, 10);
     const article = await db.Article.findByPk(articleId);
     if (article) {
-        res.json({article})
+        res.render('single-article', { title: 'Read This Article!', csrfToken: req.csrfToken()})
     } else {
         next(articleNotFoundError(articleId))
     }
 }))
 
 router.get('/create', csrfProtection, asyncHandler (async (req, res, next) => {
-    res.render('create-article', {title: 'Write An Article!'})
+    res.render('create-article', { title: 'Write An Article!', csrfToken: req.csrfToken()})
 }));
 
 router.post('/create', csrfProtection, asyncHandler(async (req, res, next) => {
@@ -60,7 +51,7 @@ router.post('/create', csrfProtection, asyncHandler(async (req, res, next) => {
     }
 }));
 
-router.put('/id(\\d+)', asyncHandler(async (req, res, next) => {
+router.put('/id(\\d+)', csrfProtection, asyncHandler(async (req, res, next) => {
     const articleId = parseInt(req.params.id, 10);
     const article = await db.Article.findByPk(articleId);
     const validatorErrors = validationResult(req);
@@ -71,15 +62,24 @@ router.put('/id(\\d+)', asyncHandler(async (req, res, next) => {
         const errors = validatorErrors.array().map((error) => error.msg)
         res.render('create-article', {title: "Write An Article!", content, errors, csrfToken: req.csrfToken()})
     }
+}));
 
-}))
+router.delete('/id(\\d+)', asyncHandler(async (req, res, next) => {
+    const articleId = parseInt(req.params.id, 10);
+    const article = await db.Article.findByPk(articleId);
+
+    if (article) {
+        await article.destroy();
+        res.status(204).end();
+    } else {
+        next(articleNotFoundError(articleId));
+    }
+    // MAY NEED TO BE REVISITED
+    res.redirect('/')
+}));
 
 
 // content and pictures
-// posting/creating
-// editing
-// deleting
-
 // LIKES
 
 module.exports = router;
