@@ -15,16 +15,16 @@ block content
       table(class="top-story-table")
         thead
           tr
-            th(scope='col') Top Stories
+            th(scope='col') Top Travelogues
         tbody
           each article in articles
             tr
               td= article.title
-              //- INSERT PICTURE HERE
+              //- INSERT PICTURE HERE - ^^ WORKS IF ARTICLE LINES ARE COMMENTED OUT
     div(class='more-articles-container')
-      ul
-        each article in articles 
-          li= article.title
+      //- ul
+      //-   each article in articles 
+      //-     li= article.title
   div(class="topics-container")
     //- BONUS DONT YELL AT US SIGNED PN.
     div(class="top-bonus-container")
