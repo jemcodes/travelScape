@@ -1,47 +1,50 @@
-const jwt = require('jsonwebtoken')
-const { jwtConfig } = require('./config');
-const { secret, expiresIn } = jwtConfig;
-const bearerToken = require('express-bearer-token');
+const db = require('./db/models');
 const { User } = require('./db/models');
 
-const getUserToken = (user) => {
-    const userDataForToken = {
-        id: user.id,
-        email: user.email
+const loginUser = (req, res, user) => {
+    req.session.auth = {
+        userId: user.id
     }
-    const token = jwt.sign(
-        { data: userDataForToken },
-        secret,
-        { expiresIn: parseInt(expiresIn, 10) }
-    )
-    return token;
 }
 
-const restoreUser = (req, res, next) => {
-    const { token } = req;
-    if (!token) {
-        return res.set('WWW-Authenticate', 'Bearer').status(401).end();
-    }
-    return jwt.verify(token, secret, null, async (err, jwtPayload) => {
-        if (err) {
-            err.status = 401;
-            return next(err);
-        }
+const logoutUser = (req, res) => {
+    delete req.session.auth;
+}
 
-        const { id } = jwtPayload.data;
+const requireAuth = (req, res, next) => {
+    if (!res.locals.authenticated) {
+        return res.redirect('/user/login');
+    }
+    return next();
+}
+
+const restoreUser = async (req, res, next) => {
+    // console.log(req.session);
+
+    if (req.session.auth) {
+        const { userId } = req.session.auth;
 
         try {
-            req.user = await User.findByPk(id);
-        } catch (e) {
-            return next(e);
-        }
+            const user = await User.findByPk(userId)
 
-        if (!req.user) {
-            return res.set('WWW-Authenticate', 'Bearer').status(401).end();
+            if (user) {
+                res.locals.authenticated = true;
+                res.locals.user = user;
+                next();
+            }
+        } catch (err) {
+            res.locals.authenticated = false;
+            next(err);
         }
-        return next();
-    });
+    } else {
+        res.locals.authenticated = false;
+        next()
+    }
 };
 
-const requireAuth = [bearerToken(), restoreUser]
-module.exports = { getUserToken, requireAuth }
+module.exports = {
+    restoreUser,
+    loginUser,
+    logoutUser,
+    requireAuth
+}

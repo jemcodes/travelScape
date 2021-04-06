@@ -8,7 +8,9 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
-
+const { sessionSecret } = require('./config')
+const { restoreUser } = require('./auth') // double check w alec
+/************************************** REQUIRED STUFF DONT TOUCH *******************************************************/
 const app = express();
 
 // view engine setup
@@ -25,7 +27,7 @@ const store = new SequelizeStore({ db: sequelize });
 
 app.use(
   session({
-    secret: 'superSecret',
+    secret: sessionSecret,
     store,
     saveUninitialized: false,
     resave: false,
@@ -35,6 +37,7 @@ app.use(
 // create Session table if it doesn't already exist
 store.sync();
 
+app.use(restoreUser) // alec
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
