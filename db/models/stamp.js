@@ -1,8 +1,17 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Stamp = sequelize.define('Stamp', {
-    articleId: DataTypes.INTEGER,
-    userId: DataTypes.INTEGER
+    articleId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: { model: "Articles" }
+
+    },
+    userId: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+      references: { model: "Users" }
+    },
   }, {});
   Stamp.associate = function (models) {
     // associations can be defined here

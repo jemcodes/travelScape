@@ -18,6 +18,12 @@ module.exports = {
         type: Sequelize.STRING(50),
         unique: true
       },
+      bio: {
+        type: Sequelize.TEXT
+      },
+      profile_pic: {
+        type: Sequelize.TEXT
+      },
       hashedPW: {
         allowNull: false,
         type: Sequelize.STRING.BINARY
