@@ -18,7 +18,9 @@ const articleNotFoundError = (id) => {
 }
 
 router.get('/', csrfProtection, asyncHandler (async (req, res, next) => {
-    res.render('newsfeed', {title: 'Read Articles', csrfToken: req.csrfToken()});
+    //NEED TO ADD ORDER BY STAMP COUNT WHEN STAMP DB IS DONE. 
+    const articles = await db.Article.findAll()
+    res.render('newsfeed', {title: 'Read Articles', articles, csrfToken: req.csrfToken()});
 }))
 
 router.get('/:id(\\d+)', csrfProtection, asyncHandler (async (req, res, next) => {

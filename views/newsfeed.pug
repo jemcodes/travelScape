@@ -12,10 +12,26 @@ block content
       button(type="button" class="home-button") GO HOME
   div(class="top-articles-container")
     div(class="top-story-container")
+      table(class="top-story-table")
+        thead
+          tr
+            th(scope='col') Top Stories
+        tbody
+          each article in articles
+            tr
+              td= article.title
+              //- INSERT PICTURE HERE
     div(class='more-articles-container')
+      ul
+        each article in articles 
+          li= article.title
   div(class="topics-container")
+    //- BONUS DONT YELL AT US SIGNED PN.
     div(class="top-bonus-container")
+    //- BONUS DONT YELL AT US SIGNED PN.
   div(class="horizontal-divider")
+    hr
+    //- SOMETHING TO TEST NOT SURE IF IT WILL WORK. AGAIN DONT YELL AT ME -pn
   div(class="bottom-articles-container")
   div(class="bottom-bonus-container")
 
