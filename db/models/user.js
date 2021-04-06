@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     hashedPW: {
       allowNull: false,
-      type: DataTypes.STRING.BINARY
+      type: DataTypes.STRING
     },
   }, {});
   User.associate = function (models) {
