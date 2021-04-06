@@ -37,8 +37,28 @@ signUpForm.addEventListener('submit', async (e) => {
         if (e.status >= 400 && e.status < 600) {
             const errorJson = await e.json();
             const errorsContainer = document.querySelector('.errors-container');
-            // WHERE WE LEFT OFF ON MONDAY
+            let errorsHTML = [
+                `
+                    <div class='alert alert-danger'>
+                        Something went wrong. Please try again.
+                    </div>
+                `
+            ]
+            const { errors } = errorJson
+            if (errors && Array.isArray(errors)) {
+                errorsHTML = errors.map(
+                    (message) => `
+                    <div class='alert alert-danger'>
+                        ${message}
+                    </div>
+                    `
+                )
+            }
+            errorsContainer.innerHTML = errorsHTML.join('')
+        } else {
+            alert(
+                'Something went wrong. Please check your internet connection and try again.'
+            )
         }
-        console.log(e);
     }
 })
