@@ -1,4 +1,11 @@
 extends layout.pug 
 
 block content 
-    
+  div(class="nav-bar-container")
+  //- INDIVIDUAL NAME PROFILE CLICKABLE:
+  a(href=`/profiles/${user.id}` class="user-name-link")= user.pen_name
+  //- FOLLOWERS CLICKABLE??:
+  a(href="/penpals" class="")
+  //- a(href in a BUTTON/DROPDOWN?? to go to user's personal profile)
+  //- a(href='/profle???' class="")
+  //-   button(type="button" class="profile-button") PROFILE
