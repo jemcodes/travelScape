@@ -1,4 +1,38 @@
 extends layout.pug 
 
+append head 
+	link(rel='stylesheet' href='/stylesheets/navbar.css')
+	script(type='text/javascript' src='/javascripts/navbar.js')
+
+
 block content
-	h2 YOU ARE VIEWING A SINGLE ARTICLE. 
+	.nav__container 
+		div(class='nav-logo')
+			a(href='/newsfeed') LOGO
+		div(class='nav-link')
+			a(class="nav-profile" href=`/profile${user.id}`) PROFILE
+			a(class='nav-home' href="/newsfeed") HOME
+	.article__container 
+		.article__title= article.title 
+		.article__user By: #{article.User.pen_name}
+		.article__image 
+			img(src=article.imageSrc)
+		.article__content
+			p= article.content
+		div(class='article-icons')
+			.article__comments-icon
+				img(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
+				//- number of comments add here
+			.article__stamps-icon
+				img(src="https://cdn3.iconfinder.com/data/icons/office-269/32/Office_Expanded_32pxl_Stamps-512.png")
+				//- number of stamps add here
+		.comments__container
+			each comment in comments 
+				.comments__author
+					p #{comment.User.pen_name} 
+				.comments__content
+					p=comment.content
+				br
+	//- .footer__container
+	//- 	a(href="https://github.com") 
+	//- THIS IS BROKEN

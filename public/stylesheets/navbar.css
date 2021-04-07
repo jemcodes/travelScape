@@ -1,3 +1,11 @@
 h2{
   color:red
 }
+
+.nav__container {
+  background-color: rgb(216, 170, 170);
+}
+
+.footer__container{
+  background-color: aquamarine;
+}

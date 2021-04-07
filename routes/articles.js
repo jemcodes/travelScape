@@ -5,64 +5,107 @@ const { check, validationResult } = require('express-validator');
 const { asyncHandler, csrfProtection } = require('./utils');
 
 const validateArticle = [
+    check('title')
+        .exists({ checkFalsy: true })
+        .withMessage('Add a title!')
+        .isLength({ max: 100 })
+        .withMessage('Title must not be longer than 100 characters.'),
     check('content')
-        .exists({checkFalsy:true})
-        .withMessage('Come on tell us a story!!!!!!!')
+        .exists({ checkFalsy: true })
+        .withMessage('Come on tell us a story!!!!!!!'),
+    check('imageSrc')
+        .isURL()
+        .withMessage('Image must be a valid URL.'),
 ]
 
 const articleNotFoundError = (id) => {
-    const err = Error(`Article with id of ${id} must have been lost in the Bermuda triangle!`);
+    const err = Error(`Article with id of ${id} must have been lost in the Bermuda Triangle!`);
     err.title = 'Article not found';
     err.status = 404;
     return err;
 }
 
-router.get('/', csrfProtection, asyncHandler (async (req, res, next) => {
-    //NEED TO ADD ORDER BY STAMP COUNT WHEN STAMP DB IS DONE. 
-    const articles = await db.Article.findAll()
-    res.render('newsfeed', {title: 'Read Articles', articles, csrfToken: req.csrfToken()});
-}))
-
-router.get('/:id(\\d+)', csrfProtection, asyncHandler (async (req, res, next) => {
+// getting single article
+router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
     const articleId = parseInt(req.params.id, 10);
-    const article = await db.Article.findByPk(articleId);
-    if (article) {
-        res.render('single-article', { title: 'Read This Article!', csrfToken: req.csrfToken()})
-    } else {
+    const article = await db.Article.findByPk(articleId, {
+        include: db.User,
+    });
+    // console.log(article)
+    const comments = await db.Comment.findAll({
+        where: {
+            articleId
+        },
+        include: db.User,
+        order: [['createdAt', 'DESC']]
+    })
+
+    // verifying user
+    const { userId } = req.session.auth;
+    const user = await db.User.findByPk(userId);
+
+    res.render('single-article', {
+        title: article.title,
+        article,
+        csrfToken: req.csrfToken(),
+        user,
+        comments
+    })
+
+    if (!article) {
         next(articleNotFoundError(articleId))
     }
+
 }))
 
-router.get('/create', csrfProtection, asyncHandler (async (req, res, next) => {
-    res.render('create-article', { title: 'Write An Article!', csrfToken: req.csrfToken()})
+// getting your form to write article
+router.get('/create', csrfProtection, asyncHandler(async (req, res, next) => {
+    const article = db.Article.build();
+    res.render('create-article', {
+        title: 'Write An Article!',
+        article,
+        csrfToken: req.csrfToken()
+    })
 }));
 
-router.post('/create', csrfProtection, asyncHandler(async (req, res, next) => {
-    const { content } = req.body;
+// posting article
+router.post('/create', csrfProtection, validateArticle, asyncHandler(async (req, res, next) => {
+    const { title, content, imageSrc } = req.body;
 
-    const article = await db.Article.create({
-        content
+    const article = await db.Article.build({
+        title,
+        content,
+        imageSrc,
+        userId
     });
     const validatorErrors = validationResult(req);
-    if(validatorErrors.isEmpty()){
-        res.redirect('/:id')
-        //NEED TO DISCUSS THIS REDIRECT. 
-    } else{
+
+    // redirect to newly created article
+    if (validatorErrors.isEmpty()) {
+        await article.save();
+        res.redirect(`articles/${article.id}`)
+    } else {
         const errors = validatorErrors.array().map((error) => error.msg)
-        res.render('create-article', {title: "Write An Article!", content, errors, csrfToken: req.csrfToken()})
+        res.render('create-article', {
+            title: "Write An Article!",
+            content,
+            errors,
+            csrfToken: req.csrfToken()
+        })
     }
 }));
 
-router.put('/id(\\d+)', csrfProtection, asyncHandler(async (req, res, next) => {
+// editing articles
+router.put('/id(\\d+)', csrfProtection, validateArticle, asyncHandler(async (req, res, next) => {
     const articleId = parseInt(req.params.id, 10);
     const article = await db.Article.findByPk(articleId);
     const validatorErrors = validationResult(req);
-    if(validatorErrors.isEmpty()){
-        await article.update({content: req.body.content});
+    if (validatorErrors.isEmpty()) {
+        await article.update({ content: req.body.content });
         res.redirect('/:id')
-    } else{
+    } else {
         const errors = validatorErrors.array().map((error) => error.msg)
-        res.render('create-article', {title: "Write An Article!", content, errors, csrfToken: req.csrfToken()})
+        res.render('create-article', { title: "Write An Article!", content, errors, csrfToken: req.csrfToken() })
     }
 }));
 
@@ -77,7 +120,7 @@ router.delete('/id(\\d+)', asyncHandler(async (req, res, next) => {
         next(articleNotFoundError(articleId));
     }
     // MAY NEED TO BE REVISITED
-    res.redirect('/')
+    res.redirect('/newsfeed') // OR PROFILE ROUTE
 }));
 
 
