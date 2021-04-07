@@ -35,7 +35,7 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
     }
 }))
 
-router.get('/:id(\\d+)/penpals', csrfProtection, asyncHandler(async (req, res, next) => {
+router.get('/:id(\\d+)/penpals', requireAuth, csrfProtection, asyncHandler(async (req, res, next) => {
     const userId = parseInt(req.params.id, 10);
     // const user = await User.findOne({ 
     //     where: userId , 
@@ -56,7 +56,8 @@ router.get('/:id(\\d+)/penpals', csrfProtection, asyncHandler(async (req, res, n
     }
 }))
 
-router.post('/logout', logoutUser, asyncHandler(async (req, res) => {
+router.post('/logout', asyncHandler(async (req, res) => {
+    logoutUser(req, res);
     res.redirect('/');
 }))
 
