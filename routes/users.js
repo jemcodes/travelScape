@@ -158,6 +158,11 @@ router.post('/logout', (req, res) => {
   res.redirect('/');
 });
 
-//User Logging in
+router.get('/demo', asyncHandler(async (req, res) => {
+  req.session.auth = { userId: 1 };
+  res.redirect('/newsfeed');
+}))
+
+// CHANGE TO HOME PAGE
 
 module.exports = router;
