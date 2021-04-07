@@ -4,7 +4,23 @@ h2{
 
 .nav__container {
   background-color: rgb(216, 170, 170);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 40px;
+  height: 70px;
+  padding: 0 38px;
+  box-shadow: black;
 }
+
+.nav__container > * {
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo {
+  grid-column: 1 / 2;
+}
+
 
 .footer__container{
   background-color: aquamarine;

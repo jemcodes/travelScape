@@ -8,8 +8,18 @@ const db = require('../db/models');
 
 router.get('/', csrfProtection, asyncHandler(async (req, res, next) => {
   //NEED TO ADD ORDER BY STAMP COUNT WHEN STAMP DB IS DONE. 
-  const articles = await db.Article.findAll()
-  res.render('newsfeed', { title: 'Read Articles', articles, csrfToken: req.csrfToken() });
+  const articles = await db.Article.findAll({
+    include: db.User,
+  })
+
+  const { userId } = req.session.auth;
+  const user = await db.User.findByPk(userId);
+  res.render('newsfeed', {
+    title: articles.title,
+    articles,
+    user,
+    csrfToken: req.csrfToken()
+  });
 }))
 
 module.exports = router
