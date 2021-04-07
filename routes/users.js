@@ -135,7 +135,7 @@ router.post('/login', csrfProtection, loginValidators,
           // If the password hashes match, then login the user
           // and redirect them to the default route.
           loginUser(req, res, user);
-          return res.redirect('/');
+          return res.redirect('/newsfeed');
         }
       }
 

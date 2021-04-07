@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 const db = require('../db/models');
-const {User, Article, PenPal} = db
+const { User, Article, PenPal } = db;
 const { check, validationResult } = require('express-validator');
-const { loginUser, logoutUser } = require('../auth');
+const { loginUser, logoutUser, requireAuth } = require('../auth');
 const { asyncHandler, csrfProtection } = require('./utils');
 
 const profileNotFoundError = (id) => {
@@ -14,22 +14,21 @@ const profileNotFoundError = (id) => {
     return err;
 }
 
-router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res, next) => {
+router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, res, next) => {
+    const loggedIn = req.session.auth.userId;
     const userId = parseInt(req.params.id, 10);
-    // const user = await User.findOne({ 
-    //     where: userId , 
-    //     include: PenPal 
-    //  });
     const user = await User.findByPk(userId, {
         include: [{
             model: User,
             as: 'followers'
-        }]})
-        const penPalCount = user.followers.length
-     console.log(user)
+        }]
+    })
+    const penPalCount = user.followers.length
+
+
     if (user) {
-        console.log(user);
-        res.render('profile', { user, csrfToken: req.csrfToken(), penPalCount })
+
+        res.render('profile', { user, csrfToken: req.csrfToken(), penPalCount, loggedIn })
 
     } else {
         next(profileNotFoundError(userId));
@@ -46,13 +45,19 @@ router.get('/:id(\\d+)/penpals', csrfProtection, asyncHandler(async (req, res, n
         include: [{
             model: User,
             as: 'followers'
-        }]})
+        }]
+    })
+
     //  const penpals = user.followers.map(user => user.pen_name)
     if (user) {
         res.render('penPals', { user, csrfToken: req.csrfToken() })
     } else {
         next(profileNotFoundError(userId));
     }
+}))
+
+router.post('/logout', logoutUser, asyncHandler(async (req, res) => {
+    res.redirect('/');
 }))
 
 module.exports = router;

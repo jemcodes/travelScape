@@ -2,6 +2,7 @@ extends layout.pug
 
 block content 
   h1 Am I working
+  div(class="pen-pal-list")
     ul 
       each penpal in user.followers 
-        li=penpal.pen_name
+        li(class="pen-pal-list-item")=penpal.pen_name
