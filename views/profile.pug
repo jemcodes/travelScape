@@ -1,6 +1,7 @@
 extends layout.pug 
 
 block content 
+  //- THIS IS THE CURRENT UNIFORM NAV BAR.
   div(class="nav-bar-container")
   //- INDIVIDUAL NAME PROFILE CLICKABLE:
   a(href=`/profiles/${user.id}` class="user-name-link")= user.pen_name
@@ -14,5 +15,16 @@ block content
   form(action="/profiles/logout" method="post")
     button(type="submit") Log Out
 
-
-    //- button(type="button" class="profile-button") PROFILE
+  div(class="main-container")
+    div(class="pic-bio-container")
+      ul(class="author-info-list") 
+        img(id="profile-pic" src=`${user.profile_pic}`)
+        li(id="profile-bio")=user.bio
+    div(class="user-article-container")
+      ul
+        each article in user.Articles 
+          li(class="article-title"): a(href=`/articles/${article.id}`)= article.title
+          img(class="article-pic" src=`${article.imageSrc}`)
+          li(class="article-content")= `${article.content}...`
+          li(class="stamps-comments")= article.Comments.length
+          
