@@ -10,13 +10,6 @@ router.get('/', csrfProtection, (req, res) => {
   })
 });
 
-router.get('/newsfeed', csrfProtection, (req, res) => {
-  // res.render('index', { title: 'a/A Express Skeleton Home' });
-  res.render('newsfeed', {
-    csrfToken: req.csrfToken(),
-  })
-});
-// MUST CHANGE TO ROUTES FOLDER ^^^^
 
 
 module.exports = router;

@@ -1,7 +1,7 @@
-mixin field(labelText, fieldName, fieldValue, fieldType = 'text')
+mixin field(labelText, fieldName, fieldValue, fieldType = 'text', placeholder = null)
   div(class='form-group')
     label(for=fieldName)= labelText
-    input(type=fieldType id=fieldName name=fieldName value=fieldValue class='form-control')
+    input(type=fieldType id=fieldName name=fieldName value=fieldValue class='form-control' placeholder=placeholder)
 
 mixin validationErrorSummary(errors)
   if errors
@@ -10,3 +10,10 @@ mixin validationErrorSummary(errors)
       ul
         each error in errors
           li= error
+
+mixin fieldNoLabel(classList, fieldName, fieldValue, fieldType = 'text', placeholder = null)
+  div(class=classList)
+    if fieldType === 'textarea'
+      textarea(id=fieldName name=fieldName rows='10' placeholder=placeholder spellcheck=true)=fieldValue
+    else 
+      input(type=fieldType id=fieldName name=fieldName value=fieldValue placeholder=placeholder)

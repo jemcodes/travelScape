@@ -9,6 +9,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const articlesRouter = require('./routes/articles');
+const newsfeedRouter = require('./routes/newsfeed');
 const { sessionSecret } = require('./config')
 const { restoreUser } = require('./auth') // double check w alec
 /************************************** REQUIRED STUFF DONT TOUCH *******************************************************/
@@ -40,6 +41,7 @@ store.sync();
 
 app.use(restoreUser) // alec
 app.use('/', indexRouter);
+app.use('/newsfeed', newsfeedRouter)
 app.use('/users', usersRouter);
 // Articles Router
 app.use('/articles', articlesRouter);

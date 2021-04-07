@@ -1,38 +1,20 @@
 extends layout.pug 
-block content 
-  div(class="nav-bar-container")
-    //- INDIVIDUAL NAME PROFILE CLICKABLE:
-    //- a(href="" class="")
-    //- FOLLOWERS CLICKABLE??:
-    //- a(href="" class="")
-    //- a(href in a BUTTON/DROPDOWN?? to go to user's personal profile)
-    //- a(href='/profle???' class="")
-    //-   button(type="button" class="profile-button") PROFILE
-    a(href='/newsfeed')
-      button(type="button" class="home-button") GO HOME
-  div(class="top-articles-container")
-    div(class="top-story-container")
-      table(class="top-story-table")
-        thead
-          tr
-            th(scope='col') Top Travelogues
-        tbody
-          //- each article in articles
-          //-   tr
-          //-     td= article.title
-              //- INSERT PICTURE HERE - ^^ WORKS IF ARTICLE LINES ARE COMMENTED OUT
-    div(class='more-articles-container')
-      //- ul
-      //-   each article in articles 
-      //-     li= article.title
-  div(class="topics-container")
-    //- BONUS DONT YELL AT US SIGNED PN.
-    div(class="top-bonus-container")
-    //- BONUS DONT YELL AT US SIGNED PN.
-  div(class="horizontal-divider")
-    hr
-    //- SOMETHING TO TEST NOT SURE IF IT WILL WORK. AGAIN DONT YELL AT ME -pn
-  div(class="bottom-articles-container")
-  div(class="bottom-bonus-container")
 
-    
+append head 
+	link(rel='stylesheet' href='/stylesheets/newsfeed.css')
+	link(rel='stylesheet' href='/stylesheets/navbar.css')
+	script(type='text/javascript' src='/javascripts/navbar.js')
+
+block content
+	.nav__container 
+		div(class='nav-logo')
+			a(href='/newsfeed') LOGO
+		div(class='nav-link')
+			a(class="nav-profile" href=`/profile${user.id}`) PROFILE
+			a(class='nav-home' href="/newsfeed") HOME
+	.article__container-newsfeed 
+		each article in articles
+			.article__image
+				img(src=article.imageSrc)
+			.article__title= article.title
+			.article__user By: #{article.User.pen_name}

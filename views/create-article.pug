@@ -1,4 +1,25 @@
-extends layout.pug 
+extends layout.pug
+
+include utils.pug
+
+append head 
+    link(rel='stylesheet' href='/stylesheets/create.css')
+    link(rel='stylesheet' href='/stylesheets/navbar.css')
+    script(type='text/javascript' src='/javascripts/navbar.js')
 
 block content
-	h2 Write a new travel story! THIS IS WHERE WE CREATE AN ARTICLE
+    .nav__container
+        div(class="nav-link")
+            a(class="nav-profile" href=`/profile${user.id}`) USER NAME
+            a(href="/newsfeed") HOME
+    +validationErrorSummary(errors)
+    div(class="create-form-container")
+        div(class="create-form-contents")
+            .form(action="/articles/create" method="post" class="articles-create__container")
+                input(type="hidden" name="_csrf" value=csrfToken)
+                +fieldNoLabel('articles-create__title', 'title', article.title, 'text', 'TITLE')
+                +fieldNoLabel('articles-create__content', 'content', article.content, 'textarea', 'Tell your story...')
+                +fieldNoLabel('articles-create__image', 'imageSrc', article.imageSrc, 'url', 'Share your photo here...')
+                .form__button
+                    button(type="submit" class="publish-button") PUBLISH
+                    a(href="/newsfeed" class="cancel-button") CANCEL

@@ -1,4 +1,51 @@
 extends layout.pug 
 
+append head 
+	link(rel='stylesheet' href='/stylesheets/navbar.css')
+	link(rel='stylesheet' href='/stylesheets/single-article.css')
+	script(type='text/javascript' src='/javascripts/navbar.js')
+
+
 block content
-	h2 YOU ARE VIEWING A SINGLE ARTICLE. 
+	.nav__container 
+		div(class='nav-logo')
+			a(href='/newsfeed') LOGO
+				//- img#logoImg(src="/images/logo.png")
+		div(class='nav-link')
+			a(class="nav-profile" href=`/profile${user.id}`) PROFILE
+			a(class='nav-home' href="/newsfeed") HOME
+	.article__container 
+		.article__container-image 
+			img#articleImg(src=article.imageSrc)
+		.article__title= article.title 
+		.article__user By: #{article.User.pen_name}
+		.article__container-content
+			p#articleText= article.content
+		div(class='article__container-icons')
+			.article__comments-icon
+				img#commentImg(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
+				//- number of comments add here
+			.article__stamps-icon
+				img#stampImg(src="https://cdn3.iconfinder.com/data/icons/office-269/32/Office_Expanded_32pxl_Stamps-512.png")
+				//- number of stamps add here
+		.form
+			form(action=`/articles/${article.id}` method='post')
+				input(type='hidden' name='_csrf' value=csrfToken)
+				.form__inputs
+					.form__comment
+						input(type="text" name="comment" placeholder="Comments? Opinions?")
+					.form__button
+						button(type='submit') SHARE
+		.comments__container
+			each comment in comments 
+				.comments__author
+					p #{comment.User.pen_name} 
+				.comments__content
+					p=comment.content
+				.comments__date 
+					p=comment.createdAt
+				br
+
+	//- .footer__container
+	//- 	a(href="https://github.com") 
+	//- THIS IS BROKEN
