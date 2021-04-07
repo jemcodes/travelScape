@@ -1,0 +1,7 @@
+extends layout.pug 
+
+block content 
+  h1 Am I working
+    ul 
+      each penpal in user.followers 
+        li=penpal.pen_name

@@ -5,7 +5,9 @@ block content
   //- INDIVIDUAL NAME PROFILE CLICKABLE:
   a(href=`/profiles/${user.id}` class="user-name-link")= user.pen_name
   //- FOLLOWERS CLICKABLE??:
-  a(href="/penpals" class="")
+
+  a(href=`/profiles/${user.id}/penpals` class="pen-pal-link")= `${penPalCount} Pen Pals`
   //- a(href in a BUTTON/DROPDOWN?? to go to user's personal profile)
   //- a(href='/profle???' class="")
+  a(href=`/newsfeed`) Article Home
   //-   button(type="button" class="profile-button") PROFILE
