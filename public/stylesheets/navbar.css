@@ -2,8 +2,17 @@ h2{
   color:red
 }
 
+/* .nav-logo{
+  margin: 0 auto;
+  display: block;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: flex-start;
+} */
+
 .nav__container {
-  background-color: rgb(216, 170, 170);
+  background-color: rgb(170, 188, 216);
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   column-gap: 40px;
