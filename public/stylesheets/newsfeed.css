@@ -49,13 +49,13 @@ body{
   /* box-shadow: 2px 2px; */
 }
 
-.article__container-image:hover{
-  /* background-image: ;
+/* .article__container-image:hover{
+  background-image: ;
   height: 70px;
   width: 120px; 
   NOT COMPLETE
-  */
-}
+ 
+} */
 
 #articleImg{
   max-width: 100%;
