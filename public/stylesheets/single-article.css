@@ -41,6 +41,10 @@ body{
   align-items:flex-end;
 }
 
+.article__user-link:hover{
+  color: royalblue;
+}
+
 .article__container-content{
   margin: 25px 0;
 }

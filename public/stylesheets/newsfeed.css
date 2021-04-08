@@ -46,6 +46,15 @@ body{
   max-width: 750px;
 	margin-top: 10px;
   padding-top: 50px;
+  /* box-shadow: 2px 2px; */
+}
+
+.article__container-image:hover{
+  /* background-image: ;
+  height: 70px;
+  width: 120px; 
+  NOT COMPLETE
+  */
 }
 
 #articleImg{

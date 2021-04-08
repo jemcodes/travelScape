@@ -17,8 +17,9 @@ block content
 	.article__container 
 		.article__container-image 
 			img#articleImg(src=article.imageSrc)
-		.article__title= article.title 
-		.article__user By: #{article.User.pen_name}
+		.article__title= article.title
+		div(class='article__user') 
+			a(class='article__user-link' href=`/profiles/${user.id}`) By: #{article.User.pen_name}
 		.article__container-content
 			p#articleText= article.content
 		div(class='article__container-icons')
