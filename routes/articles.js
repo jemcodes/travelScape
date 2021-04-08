@@ -28,8 +28,9 @@ const articleNotFoundError = (id) => {
 // getting single article
 router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
     const articleId = parseInt(req.params.id, 10);
+    // FOR STAMPS
     const article = await db.Article.findByPk(articleId, {
-        include: db.User,
+        include: [db.User, db.Stamp]
     });
     // console.log(article)
     const comments = await db.Comment.findAll({
@@ -39,6 +40,8 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
         include: db.User,
         order: [['createdAt', 'DESC']]
     })
+    // console.log(article)
+    const stampNum = article.Stamps.length;
 
     // verifying user
     const { userId } = req.session.auth;
@@ -49,7 +52,8 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
         article,
         csrfToken: req.csrfToken(),
         user,
-        comments
+        comments,
+        stampNum
     })
 
     if (!article) {
@@ -123,17 +127,15 @@ router.delete('/id(\\d+)', asyncHandler(async (req, res, next) => {
     res.redirect('/newsfeed') // OR PROFILE ROUTE
 }));
 
-//helper function to catch errors 
+router.patch('/articles/:id(\\d+)', (req, res) => {
+    db.Stamp.score += 1;
+    res.json({ score: stamp.score });
+});
 
-// app.patch('/upvote', (req, res) => {
-//     article.stamp += 1;
-//     res.json({ stamp: article.stamp })
-// })
-
-// app.patch('/downvote', (req, res) => {
-//     article.stamp -= 1;
-//     res.json({ stamp: article.stamp })
-// })
+router.patch('/articles/:id(\\d+)', (req, res) => {
+    stamp.score -= 1;
+    res.json({ score: stamp.score });
+});
 
 // content and pictures
 // LIKES
