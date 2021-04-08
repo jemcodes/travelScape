@@ -2,14 +2,22 @@ extends layout.pug
 
 include utils.pug
 
+append head
+	link(rel='stylesheet' href='/stylesheets/navbar.css')
+	link(rel='stylesheet' href='/stylesheets/log-in.css')
+	script(type='text/javascript' src='/javascripts/navbar.js')
+
 block content 
+	h1 CONTINUE YOUR ADVENTURE!
 	div(class="errors-container")
-	h2 Log In 
 		+validationErrorSummary(errors)
-		form(action='/users/login' method='post')
-			input(type='hidden' name='_csrf' value=csrfToken)
-			+field('Email Address', 'email', email)
-			+field('Password', 'password', null, 'password')
-			button(type='submit') Welcome Home
-			a()
-			a(href='/users/signup') Don't have an account? Sign up here.
+		div(class="log-in-container")
+			div(class="log-in-contents")
+				form(action='/users/login' method='post' id="form__container")
+					input(type='hidden' name='_csrf' value=csrfToken)
+					+field('Email Address', 'email', email)
+					+field('Password', 'password', null, 'password')
+					div(id="log-in-btn-container")
+						button(type='submit' id="log-in-btn") Welcome Home
+						a()
+						a(href='/users/signup' id="sign-up-link") Don't have an account? Sign up here.

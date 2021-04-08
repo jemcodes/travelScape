@@ -1,0 +1,89 @@
+body {
+  font-family: Playfair Display;
+  font-size: 12px;
+  background-color: #F7F7F7;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    margin: 30px;
+}
+
+.log-in-container {
+    /* border: solid 5px red; */
+    display: flex;
+    justify-content: center;
+}
+
+.log-in-contents {
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: column;
+    /* border: solid 5px red; */
+    max-width: 500px;
+    justify-content: center;
+}
+
+input {
+  width: 100%;
+}
+
+#email.form-control {
+  border: solid 1px #707070;
+  margin: 5px 0 10px 0;
+  padding: 5px;
+  color: #433C3C;
+  font-family: Playfair Display;
+  font-size: 14px;
+  text-align: left;
+}
+
+#email.form-control:focus {
+outline: 3px solid rgb(170, 188, 216);
+}
+
+#password.form-control {
+  border: solid 1px #707070;
+  margin: 5px 0 10px 0;
+  padding: 5px;
+  color: #433C3C;
+  font-family: Playfair Display;
+  font-size: 14px;
+  text-align: left;
+}
+
+#password.form-control:focus {
+outline: 3px solid rgb(170, 188, 216);
+}
+
+#log-in-btn-container {
+  font-family: Playfair Display;
+  /* border: solid 3px red; */
+  margin: 10px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#log-in-btn {
+  margin: 5px 15px 0 10px;
+  width: 50%;
+  font-family: Playfair Display;
+  background-color: #D3CACA;
+}
+
+#log-in-btn:hover {
+  background-color: #FFF3EB;
+}
+
+#sign-up-link {
+  margin: 7px 20px 0 10px;
+  color: black;
+  font-size: 14px;
+}
+
+#sign-up-link:hover {
+  color: #B20000;
+}
