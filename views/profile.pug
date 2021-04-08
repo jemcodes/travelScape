@@ -24,14 +24,16 @@ block content
     div(class="pic-bio-container")
       ul(class="author-info-list") 
         img(id="profile-pic" src=`/images/avatar-placeholder.svg`)
-        //- img(id="profile-pic" src=`${user.profile_pic}`)
-        li(id="profile-bio")=user.bio
+        li= user.pen_name
+        li(id="profile-bio")= user.bio
     div(class="user-article-container")
       ul
         each article in user.Articles 
           li(): a(href=`/articles/${article.id}` class="article-title")= article.title
-          img(class="article-pic" src=`${article.imageSrc}`)
+          li: a(href=`/articles/${article.id}`)
+            img(class="article-pic" src=`${article.imageSrc}`)
           li(class="article-content")= `${article.content}...`
-          li(class="stamps-comments")= article.Comments.length
+          li(class="stamps-comments"): a(href=`/articles/${article.id}`)= article.Comments.length
+            img.commentImg(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
           
           
