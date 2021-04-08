@@ -127,6 +127,23 @@ router.delete('/id(\\d+)', asyncHandler(async (req, res, next) => {
     res.redirect('/newsfeed') // OR PROFILE ROUTE
 }));
 
+router.post('/id(\\d+)/stamps', asyncHandler( async (req, res) => {
+    const articleId = parseInt(req.params.id, 10);
+    const { userId } = req.session.auth;
+
+    const stamp = await db.Stamp.findOne({
+        where: { articleId, userId }
+    })
+    if (!stamp){
+        await db.Stamp.create({
+            articleId,
+            userId
+        })
+    } else {
+        stamp.destroy()
+    }
+}))
+
 router.patch('/articles/:id(\\d+)', (req, res) => {
     db.Stamp.score += 1;
     res.json({ score: stamp.score });
