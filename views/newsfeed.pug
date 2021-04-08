@@ -14,7 +14,9 @@ block content
 			a(class='nav-home' href="/newsfeed") HOME
 	.article__container-newsfeed 
 		each article in articles
-			.article__image
-				img(src=article.imageSrc)
-			.article__title= article.title
-			.article__user By: #{article.User.pen_name}
+			.article__container-image
+				img#articleImg(src=article.imageSrc)
+			div(class='article__title')
+				a(class='article__title-link' href=`/articles/${article.id}`)= article.title
+			div(class='article__user')
+				a(class='article__user-link' href=`/profiles/${user.id}`) By: #{article.User.pen_name}
