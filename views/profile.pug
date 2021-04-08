@@ -8,24 +8,24 @@ append head
 block content 
   //- THIS IS THE CURRENT UNIFORM NAV BAR.
   nav(class="nav__container")
-    div(class="nav-left-container")
-      a(href=`/profiles/${user.id}` class="nav-item user-name-link")= user.pen_name
+    //- div(class="nav-left-container")
+    a(href=`/profiles/${user.id}` class="nav-item user-name-link")= user.pen_name
 
-      a(href=`/profiles/${user.id}/penpals` class="nav-item pen-pal-link")= `${penPalCount} Pen Pals`
-    div(class="nav-middle-container")
-      img(src="/images/logo-thin.png" class="logo")
-    div(class="nav-right-container")
-      a(href=`/newsfeed` class="nav-item") Home
-      a(href=`/profiles/${loggedIn}` class="nav-item") My Profile
-      form(action="/profiles/logout" method="post")
-        button(type="submit" class="nav-item") Log Out
+    a(href=`/profiles/${user.id}/penpals` class="nav-item pen-pal-link")= `${penPalCount} Pen Pals`
+    //- div(class="nav-middle-container")
+    img(src="/images/logo-thin.png" class="logo")
+    //- div(class="nav-right-container")
+    a(href=`/newsfeed` class="nav-item") Home
+    a(href=`/profiles/${loggedIn}` class="nav-item") My Profile
+    form(action="/profiles/logout" method="post")
+      button(type="submit" class="nav-item") Log Out
   
   div(class="main-container")
     div(class="pic-bio-container")
       ul(class="author-info-list") 
         img(id="profile-pic" src=`/images/avatar-placeholder.svg`)
         li= user.pen_name
-        li(id="profile-bio")= user.bio
+        li(id="profile-bio") I'm a bio! This info would be all about my author!
     div(class="user-article-container")
       ul
         each article in user.Articles 
@@ -35,5 +35,6 @@ block content
           li(class="article-content")= `${article.content}...`
           li(class="stamps-comments"): a(href=`/articles/${article.id}`)= article.Comments.length
             img.commentImg(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
-          
+            =article.Comments.length
+            img.commentImg(src="https://cdn3.iconfinder.com/data/icons/office-269/32/Office_Expanded_32pxl_Stamps-512.png")
           
