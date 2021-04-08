@@ -123,6 +123,17 @@ router.delete('/id(\\d+)', asyncHandler(async (req, res, next) => {
     res.redirect('/newsfeed') // OR PROFILE ROUTE
 }));
 
+//helper function to catch errors 
+
+// app.patch('/upvote', (req, res) => {
+//     article.stamp += 1;
+//     res.json({ stamp: article.stamp })
+// })
+
+// app.patch('/downvote', (req, res) => {
+//     article.stamp -= 1;
+//     res.json({ stamp: article.stamp })
+// })
 
 // content and pictures
 // LIKES
