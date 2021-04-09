@@ -40,12 +40,26 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
         include: db.User,
         order: [['createdAt', 'DESC']]
     })
-    // console.log(article)
+
     const stampNum = article.Stamps.length;
 
     // verifying user
     const { userId } = req.session.auth;
     const user = await db.User.findByPk(userId);
+
+    // console.log(res.locals.user)
+    let isStamped = false
+    const loggedUser = res.locals.user.id
+    // console.log(loggedUser)
+
+    article.Stamps.forEach((stamp) => {
+        // console.log(stamp)
+        const { userId } = stamp.dataValues;
+        // console.log(userId)
+        if (userId === loggedUser) {
+            isStamped = true;
+        }
+    })
 
     res.render('single-article', {
         title: article.title,
@@ -53,7 +67,8 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
         csrfToken: req.csrfToken(),
         user,
         comments,
-        stampNum
+        stampNum,
+        isStamped
     })
 
     if (!article) {
@@ -100,7 +115,7 @@ router.post('/create', csrfProtection, validateArticle, asyncHandler(async (req,
 }));
 
 // editing articles
-router.put('/id(\\d+)', csrfProtection, validateArticle, asyncHandler(async (req, res, next) => {
+router.put('/:id(\\d+)', csrfProtection, validateArticle, asyncHandler(async (req, res, next) => {
     const articleId = parseInt(req.params.id, 10);
     const article = await db.Article.findByPk(articleId);
     const validatorErrors = validationResult(req);
@@ -113,7 +128,7 @@ router.put('/id(\\d+)', csrfProtection, validateArticle, asyncHandler(async (req
     }
 }));
 
-router.delete('/id(\\d+)', asyncHandler(async (req, res, next) => {
+router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     const articleId = parseInt(req.params.id, 10);
     const article = await db.Article.findByPk(articleId);
 
@@ -127,32 +142,36 @@ router.delete('/id(\\d+)', asyncHandler(async (req, res, next) => {
     res.redirect('/newsfeed') // OR PROFILE ROUTE
 }));
 
-router.post('/id(\\d+)/stamps', asyncHandler( async (req, res) => {
+router.post('/:id(\\d+)/stamps', asyncHandler(async (req, res) => {
     const articleId = parseInt(req.params.id, 10);
     const { userId } = req.session.auth;
+    // console.log(articleId)
+    // console.log(userId)
 
     const stamp = await db.Stamp.findOne({
         where: { articleId, userId }
     })
-    if (!stamp){
+    if (!stamp) {
         await db.Stamp.create({
             articleId,
             userId
         })
+        res.json({ status: true });
     } else {
         stamp.destroy()
+        res.json({ status: false })
     }
 }))
 
-router.patch('/articles/:id(\\d+)', (req, res) => {
-    db.Stamp.score += 1;
-    res.json({ score: stamp.score });
-});
+// router.patch('/articles/:id(\\d+)', (req, res) => {
+//     db.Stamp.score += 1;
+//     res.json({ score: stamp.score });
+// });
 
-router.patch('/articles/:id(\\d+)', (req, res) => {
-    stamp.score -= 1;
-    res.json({ score: stamp.score });
-});
+// router.patch('/articles/:id(\\d+)', (req, res) => {
+//     stamp.score -= 1;
+//     res.json({ score: stamp.score });
+// });
 
 // content and pictures
 // LIKES

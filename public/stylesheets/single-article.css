@@ -73,17 +73,18 @@ body{
 	margin-top: 10px;
 }
 
-#commentImg{
+/* #commentImg{
   margin: 0 auto;
   display: block;
   width: 30px;
   height: 30px;
-}
-#stampImg{
+} */
+
+#like{
   margin: 0 auto;
   display: block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
 }
 
 .comments__container{
