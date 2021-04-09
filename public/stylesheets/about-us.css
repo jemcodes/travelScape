@@ -4,27 +4,41 @@ body{
   background-color: #F7F7F7;
 }
 
+.layout{
+  padding: 5px;
+  /* border: solid 5px red; */
+
+  /* display: grid; */
+  /* grid-template-columns: 1fr 1fr 1fr; */
+}
+
 .intro__container{
+  /* border: solid 5px red; */
   margin: 0 auto;
-  max-width: 50%;
-  /* width: 100%; */
+  max-width: 60%;
+  width: 100%;
 }
 
 #header1{
   padding-top: 40px;
   font-weight: 500;
-  font-size: 23pt;
+  font-size: 30pt;
 }
 
 #description{
-  margin: 50px auto;
+  margin: 30px auto;
   font-weight: 300;
   font-size: 12pt;
 }
 
+#git-button{
+  width: 200%;
+  height: 70px;
+  padding-top: 20px;
+  /* grid-column-start: 4; */
+}
+
 #git-link{
-  width: 300px;
-	height: 70px;
 	border: 1px solid rgba(0, 0, 0, 0.2);
   padding: 13px;
   background-color: #6B7967;
@@ -44,6 +58,7 @@ body{
 
 .link{
   text-decoration: none;
+  font-weight: 500;
 }
 
 .link:hover{
@@ -51,35 +66,54 @@ body{
   color: #6B7967
 }
 
-
 .bio__container{
+  /* border: solid 5px red; */
   /* display: flex;
   justify-content: space-evenly;
   padding-top: 100px; */
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin: 100px 100px 100px 100px;
+  margin: 20px 20px 20px 20px;
+  /* margin: auto; */
+  padding: 20px;
+
 }
 
 .bio__container-person{
   width: 90%;
   /* padding: 20px; */
+  /* border: solid 5px blue; */
+
 }
+
+#image{
+  /* height: 250px; */
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.developer{
+  font-size: 19px;
+  font-weight: 500;
+}
+/* 
+#name{
+  padding-left: 50px;
+} */
 
 .developer__links{
   /* font-size: 40px; */
-  padding: 10px
+  padding: 5px
 }
 
 #github{
   padding: 20px;
+  font-size: 20px;
 }
 
 #linkedin{
   padding: 20px;
+  font-size: 20px;
 }
 
-#image{
-  height: 250px;
-  width: 250px
-}
