@@ -1,0 +1,85 @@
+body{
+  box-sizing: border-box;
+  font-family: Playfair Display;
+  background-color: #F7F7F7;
+}
+
+.intro__container{
+  margin: 0 auto;
+  max-width: 50%;
+  /* width: 100%; */
+}
+
+#header1{
+  padding-top: 40px;
+  font-weight: 500;
+  font-size: 23pt;
+}
+
+#description{
+  margin: 50px auto;
+  font-weight: 300;
+  font-size: 12pt;
+}
+
+#git-link{
+  width: 300px;
+	height: 70px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 13px;
+  background-color: #6B7967;
+  font-size: 18pt;
+  text-decoration: none;
+  border-radius: 5px;
+  color: #FFF3EB;
+}
+
+#git-link:hover{
+  width: 200px;
+  height: 70px;
+  border-radius: 5px;
+  background-color: #FFF3EB;
+  color: rgb(15, 15, 15);
+}
+
+.link{
+  text-decoration: none;
+}
+
+.link:hover{
+  text-decoration: underline;
+  color: #6B7967
+}
+
+
+.bio__container{
+  /* display: flex;
+  justify-content: space-evenly;
+  padding-top: 100px; */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 100px 100px 100px 100px;
+}
+
+.bio__container-person{
+  width: 90%;
+  /* padding: 20px; */
+}
+
+.developer__links{
+  /* font-size: 40px; */
+  padding: 10px
+}
+
+#github{
+  padding: 20px;
+}
+
+#linkedin{
+  padding: 20px;
+}
+
+#image{
+  height: 250px;
+  width: 250px
+}
