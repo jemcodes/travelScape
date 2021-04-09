@@ -1,0 +1,127 @@
+body {
+  font-family: Playfair Display;
+  font-size: 12px;
+  background-color: #F7F7F7;
+}
+
+h1 {
+    text-align: center;
+    color: black;
+    margin: 30px;
+}
+
+.sign-up-container {
+    /* border: solid 5px red; */
+    display: flex;
+    justify-content: center;
+}
+
+.sign-up-contents {
+    width: 80%;
+    margin: 0 auto;
+    flex-direction: column;
+    /* border: solid 5px red; */
+    max-width: 500px;
+    justify-content: center;
+}
+
+input {
+  width: 100%;
+}
+
+#pen_name.form-control {
+  border: solid 1px #707070;
+  margin: 5px 0 10px 0;
+  padding: 5px;
+  color: #433C3C;
+  font-family: Playfair Display;
+  font-size: 14px;
+  text-align: left;
+}
+
+#pen_name.form-control:focus {
+outline: 3px solid rgb(170, 188, 216);
+}
+
+#email.form-control {
+  border: solid 1px #707070;
+  margin: 5px 0 10px 0;
+  padding: 5px;
+  color: #433C3C;
+  font-family: Playfair Display;
+  font-size: 14px;
+  text-align: left;
+}
+
+#email.form-control:focus {
+outline: 3px solid rgb(170, 188, 216);
+}
+
+#password.form-control {
+  border: solid 1px #707070;
+  margin: 5px 0 10px 0;
+  padding: 5px;
+  color: #433C3C;
+  font-family: Playfair Display;
+  font-size: 14px;
+  text-align: left;
+}
+
+#password.form-control:focus {
+outline: 3px solid rgb(170, 188, 216);
+}
+
+#confirmPassword.form-control {
+  border: solid 1px #707070;
+  margin: 5px 0 10px 0;
+  padding: 5px;
+  color: #433C3C;
+  font-family: Playfair Display;
+  font-size: 14px;
+  text-align: left;
+}
+
+#confirmPassword.form-control:focus {
+outline: 3px solid rgb(170, 188, 216);
+}
+
+#sign-up-btn-container {
+  font-family: Playfair Display;
+  /* border: solid 3px red; */
+  margin: 10px 0 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#sign-up-btn {
+  margin: 5px 15px 0 10px;
+  width: 50%;
+  font-family: Playfair Display;
+  background-color: #D3CACA;
+}
+
+#sign-up-btn:hover {
+  background-color: #FFF3EB;
+}
+
+#sign-up-cancel {
+  margin: 7px 20px 0 10px;
+  color: black;
+  font-size: 14px;
+}
+
+#sign-up-cancel:hover {
+  color: #B20000;
+}
+
+#log-in-redirect {
+  margin: 7px 20px 0 10px;
+  color: black;
+  font-size: 14px;
+}
+
+#log-in-redirect:hover {
+  color: #B20000;
+}

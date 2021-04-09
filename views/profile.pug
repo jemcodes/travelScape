@@ -1,30 +1,40 @@
 extends layout.pug 
 
+append head 
+  //- link(rel='stylesheet' href='/stylesheets/reset.css')
+  link(rel='stylesheet' href='/stylesheets/navbar.css')
+  link(rel='stylesheet' href='/stylesheets/profile.css')
+
 block content 
   //- THIS IS THE CURRENT UNIFORM NAV BAR.
-  div(class="nav-bar-container")
-  //- INDIVIDUAL NAME PROFILE CLICKABLE:
-  a(href=`/profiles/${user.id}` class="user-name-link")= user.pen_name
-  //- FOLLOWERS CLICKABLE??:
+  nav(class="nav__container")
+    //- div(class="nav-left-container")
+    a(href=`/profiles/${user.id}` class="nav-item user-name-link")= user.pen_name
 
-  a(href=`/profiles/${user.id}/penpals` class="pen-pal-link")= `${penPalCount} Pen Pals`
-  //- a(href in a BUTTON/DROPDOWN?? to go to user's personal profile)
-  //- a(href='/profle???' class="")
-  a(href=`/newsfeed`) Article Home
-  a(href=`/profiles/${loggedIn}`) My Profile
-  form(action="/profiles/logout" method="post")
-    button(type="submit") Log Out
-
+    a(href=`/profiles/${user.id}/penpals` class="nav-item pen-pal-link")= `${penPalCount} Pen Pals`
+    //- div(class="nav-middle-container")
+    img(src="/images/logo-thin.png" class="logo")
+    //- div(class="nav-right-container")
+    a(href=`/newsfeed` class="nav-item") Home
+    a(href=`/profiles/${loggedIn}` class="nav-item") My Profile
+    form(action="/profiles/logout" method="post")
+      button(type="submit" class="nav-item") Log Out
+  
   div(class="main-container")
     div(class="pic-bio-container")
       ul(class="author-info-list") 
-        img(id="profile-pic" src=`${user.profile_pic}`)
-        li(id="profile-bio")=user.bio
+        img(id="profile-pic" src=`/images/avatar-placeholder.svg`)
+        li= user.pen_name
+        li(id="profile-bio") I'm a bio! This info would be all about my author!
     div(class="user-article-container")
       ul
         each article in user.Articles 
-          li(class="article-title"): a(href=`/articles/${article.id}`)= article.title
-          img(class="article-pic" src=`${article.imageSrc}`)
+          li(): a(href=`/articles/${article.id}` class="article-title")= article.title
+          li: a(href=`/articles/${article.id}`)
+            img(class="article-pic" src=`${article.imageSrc}`)
           li(class="article-content")= `${article.content}...`
-          li(class="stamps-comments")= article.Comments.length
+          li(class="stamps-comments"): a(href=`/articles/${article.id}`)= article.Comments.length
+            img.commentImg(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
+            =article.Comments.length
+            img.commentImg(src="https://cdn3.iconfinder.com/data/icons/office-269/32/Office_Expanded_32pxl_Stamps-512.png")
           

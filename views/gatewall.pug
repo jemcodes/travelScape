@@ -1,9 +1,22 @@
-extends layout.pug 
+extends layout.pug
 
+include utils.pug
+
+append head
+	link(rel='stylesheet' href='/stylesheets/gatewall.css')
+	link(rel='stylesheet' href='/stylesheets/navbar.css')
+	script(type='text/javascript' src='/javascripts/navbar.js')
+	
 block content
-	a(href='/users/signup')
-		button(type="button") MAKE PASSPORT
-	a(href='/users/login')
-		button(type="button") USE PASSPORT
-	a(href='/users/demo')
-		button(type="button") DEMO USER 
+	div(id="gatewall-container")
+		div(id="gatewall-overlay")
+			div(id="gatewall-btn-container")
+				a(href='/users/signup')
+					button(type="button" id="make-passport-btn") MAKE PASSPORT
+				a(href='/users/login')
+					button(type="button" id="use-passport-btn") USE PASSPORT
+				a(href='/users/demo')
+					button(type="button" id="demo-user-btn") DEMO USER
+
+
+	

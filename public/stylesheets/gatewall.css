@@ -1,0 +1,105 @@
+body {
+    background-image: url("https://images.unsplash.com/photo-1515622472995-1a06094d2224?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #F7F7F7;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top-center; */
+}
+
+/* #gatewall-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+} */
+
+#gatewall-overlay {
+    /* background-color: aqua; */
+    /* border: solid 5px red;   */
+    /* width: 700px;
+    height: 150px; */
+    margin: 5vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: relative;
+    width: 80vw;
+    height: 50vh;
+}
+
+#gatewall-btn-container {
+    /* border: solid 1px red; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 80vw;
+    margin: 5%;
+    padding: 5% 0 5% 0;
+}
+
+#make-passport-btn {
+    border: solid 1px #F7F7F7;
+    border-radius: 10px;
+    background-color: #CB997E;
+    color: #F7F7F7;
+    flex: auto;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 25px;
+    font-family: Playfair Display;
+}
+
+#make-passport-btn:hover {
+    border: solid 1px #CB997E;
+    border-radius: 10px;
+    background-color: #F7F7F7;
+    color:#CB997E;
+}
+
+#use-passport-btn {
+    border: solid 1px #F7F7F7;
+    border-radius: 10px;
+    background-color: #CB997E;
+    color: #F7F7F7;
+    flex: auto;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 25px;
+    font-family: Playfair Display;
+}
+
+#use-passport-btn:hover {
+    border: solid 1px #CB997E;
+    border-radius: 10px;
+    background-color: #F7F7F7;
+    color:#CB997E;
+}
+
+#demo-user-btn {
+    border: solid 1px #CB997E;
+    border-radius: 10px;
+    background-color: #F7F7F7;
+    color:#CB997E;
+    flex: auto;
+    padding: 15px 32px;
+    text-align: center;
+    font-size: 25px;
+    font-family: Playfair Display;
+}
+
+#demo-user-btn:hover {
+    border: solid 1px #F7F7F7;
+    border-radius: 10px;
+    background-color: #CB997E;
+    color: #F7F7F7;
+}
