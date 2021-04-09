@@ -6,12 +6,15 @@ append head
 	script(type='text/javascript' src='/javascripts/navbar.js')
 
 block content
-	.nav__container 
-		div(class='nav-logo')
-			a(href='/newsfeed') LOGO
-		div(class='nav-link')
-			a(class="nav-profile" href=`/profile${user.id}`) PROFILE
-			a(class='nav-home' href="/newsfeed") HOME
+	nav(class="nav__container")
+		a(href=`/profiles/${user.id}` class="nav-item user-name-link")= user.pen_name
+		a(href=`#` class="nav-item pen-pal-link") About Us
+		img(src="/images/logo-thin.png" class="logo")
+		//- a(href=`/newsfeed` class="nav-item") Home
+		a(href=`/profiles/${loggedIn}` class="nav-item") My Profile
+		form(action="/profiles/logout" method="post")
+			button(type="submit" class="nav-item") Log Out
+
 	.article__container-newsfeed 
 		each article in articles
 			.article__container-image
@@ -19,5 +22,6 @@ block content
 					img#articleImg(src=article.imageSrc)
 			div(class='article__title')
 				a(class='article__title-link' href=`/articles/${article.id}`)= article.title
-			div(class='article__user')
-				a(class='article__user-link' href=`/profiles/${user.id}`) By: #{article.User.pen_name}
+			div(class='article__user') By: 
+				a(class='article__user-link' href=`/profiles/${user.id}`) #{article.User.pen_name}
+				//- a(class='article__user-link' href=`/profiles/${user.id}`) By: #{article.User.pen_name}
