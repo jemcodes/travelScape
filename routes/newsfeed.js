@@ -8,6 +8,7 @@ const { requireAuth } = require('../auth');
 /* GET newsfeed page. */
 
 router.get('/', requireAuth, csrfProtection, asyncHandler(async (req, res, next) => {
+  const loggedIn = req.session.auth.userId;
   //NEED TO ADD ORDER BY STAMP COUNT WHEN STAMP DB IS DONE. 
   const articles = await db.Article.findAll({
     include: db.User,
@@ -19,7 +20,8 @@ router.get('/', requireAuth, csrfProtection, asyncHandler(async (req, res, next)
     title: articles.title,
     articles,
     user,
-    csrfToken: req.csrfToken()
+    csrfToken: req.csrfToken(),
+    loggedIn
   });
 }))
 
