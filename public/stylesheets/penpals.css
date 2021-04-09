@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: #F7F7F7;  
+} 
+
+.pen-pal-contents {
+    position: sticky;
+    top: 15vh;
+    height: 85vh;
+    padding: 20px 40px;
+    background-color: #F7F7F7;
+    display: flex;
+    justify-content: center;
+    border-right: 2px solid black;
+    /* border-top: 2px solid black; */
+    /* max-width: 200px; */
+    border: 5px solid red;
+}
+
+.user-article-container {
+    padding-top: 50px;
+    background-color: #F7F7F7;
+    border: 5px solid red;
+}
+
+.pen-pal-contents ul {
+    list-style-type: none;
+}
+
+

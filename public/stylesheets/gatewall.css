@@ -1,6 +1,6 @@
 body {
     background-image: url("https://images.unsplash.com/photo-1515622472995-1a06094d2224?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80");
-    background-position: center center;
+    background-position: top center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -17,24 +17,20 @@ body {
     background-position: top-center; */
 }
 
-/* #gatewall-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-} */
+
 
 #gatewall-overlay {
     /* background-color: aqua; */
     /* border: solid 5px red;   */
     /* width: 700px;
     height: 150px; */
-    margin: 5vw;
+    margin: 8vw;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     position: relative;
-    width: 80vw;
-    height: 50vh;
+    width: 60vw;
+    height: 30vh;
 }
 
 #gatewall-btn-container {
@@ -42,9 +38,14 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 80vw;
-    margin: 5%;
-    padding: 5% 0 5% 0;
+    width: 60vw;
+    /* margin: 5%; */
+    /* padding: 5% 0 5% 0; */
+}
+
+#gate-wall-logo {
+    align-self: center;
+    max-width: 100%;
 }
 
 #make-passport-btn {

@@ -1,5 +1,9 @@
 extends layout.pug 
 
+append head
+  link(rel='stylesheet' href='/stylesheets/penpals.css')
+  script(type='text/javascript' src='/javascripts/navbar.js')
+
 block content
   div(class="nav-bar-container")
   //- INDIVIDUAL NAME PROFILE CLICKABLE:
@@ -13,9 +17,9 @@ block content
   a(href=`/profiles/${loggedIn}`) My Profile
   form(action="/profiles/logout" method="post")
     button(type="submit") Log Out
-
-  h1 Am I working
-  div(class="pen-pal-list")
-    ul 
-      each penpal in user.followers 
-        li(class="pen-pal-list-item")=penpal.pen_name
+    
+  div(class="pen-pal-container")
+    div(class="pen-pal-contents")
+      ul 
+        each penpal in user.followers 
+          li(class="pen-pal-list-item")=penpal.pen_name
