@@ -112,11 +112,14 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
 }))
 
 // GETTING create article form
-router.get('/create', csrfProtection, asyncHandler(async (req, res, next) => {
+router.get('/create', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
     const article = db.Article.build();
+    const { userId } = req.session.auth
+    const user = await db.User.findByPk(userId)
     res.render('create-article', {
         title: 'Write An Article!',
         article,
+        user,
         csrfToken: req.csrfToken()
     })
 }));
