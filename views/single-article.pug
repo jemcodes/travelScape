@@ -9,19 +9,20 @@ append head
 
 
 block content
-	.nav__container 
-		div(class='nav-logo')
-			a(href='/newsfeed') LOGO
-				//- img#logoImg(src="/images/logo.png")
-		div(class='nav-link')
-			a(class="nav-profile" href=`/profile${user.id}`) PROFILE
-			a(class='nav-home' href="/newsfeed") HOME
+	nav(class="nav__container")
+		a(href=`/profiles/${user.id}` class="nav-item user-name-link")= user.pen_name
+		a(href=`#` class="nav-item pen-pal-link") About Us
+		img(src="/images/logo-thin.png" class="logo")
+		a(href=`/newsfeed` class="nav-item") Home
+		a(href=`/profiles/${loggedIn}` class="nav-item") My Profile
+		form(action="/profiles/logout" method="post")
+			button(type="submit" class="nav-item") Log Out
 	.article__container 
 		.article__container-image 
 			img#articleImg(src=article.imageSrc)
 		.article__title= article.title
-		div(class='article__user') 
-			a(class='article__user-link' href=`/profiles/${user.id}`) By: #{article.User.pen_name}
+		div(class='article__user') By:
+			a(class='article__user-link' href=`/profiles/${user.id}`) #{article.User.pen_name}
 		.article__container-content
 			p#articleText= article.content
 		div(class='article__container-icons')
@@ -47,7 +48,8 @@ block content
 				input(type="hidden" value=article.id id="article-id")
 				.form__inputs
 					.form__comment
-						input#commentBody(type="text" name="comment" placeholder="Comments? Opinions?")
+						//- input#commentBody(type="text" name="comment" placeholder="Comments? Opinions?")
+						textarea#commentBody(type="text" name="comment" placeholder="Comments? Opinions?" cols="30" rows="5")
 					.form__button
 						button#commentBtn(type='submit') SHARE
 		#comments__container
