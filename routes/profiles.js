@@ -25,7 +25,7 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
         { model: Article, include: Comment }
         ]
     })
-    // console.log(user.Articles[0])
+    // console.log(user)
     // blurb of article content
     const penPalCount = user.followers.length
     user.Articles.forEach(article => {
@@ -34,12 +34,40 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
     })
 
     if (user) {
-        res.render('profile', { user, csrfToken: req.csrfToken(), penPalCount, loggedIn })
+        res.render('profile', {
+            user,
+            csrfToken: req.csrfToken(),
+            penPalCount,
+            loggedIn
+        })
     } else {
         next(profileNotFoundError(userId));
     }
 }))
 
+// FOLLOWING AND UNFOLLOWING A SPECIFIC USER
+router.post('/:id(\\d+)/followers', asyncHandler(async (req, res) => {
+    console.log("hello")
+    const isFollowId = req.params.id
+    const userId = res.locals.user.id
+    let follow = await PenPal.findOne({
+        where: { followerId: userId, followingId: isFollowId }
+    })
+    if (parseInt(isFollowId, 10) === parseInt(userId, 10)) {
+        res.json('You Cannot Follow Yourself.')
+    } else if (!follow) {
+        await PenPal.create({
+            followerId: userId,
+            followingId: isFollowId
+        })
+        res.json('following')
+    } else {
+        follow.destroy()
+        res.json('unfollowed')
+    }
+}))
+
+// GETTING ALL FOLLOWERS
 router.get('/:id(\\d+)/penpals', requireAuth, csrfProtection, asyncHandler(async (req, res, next) => {
     const loggedIn = req.session.auth.userId;
     const userId = parseInt(req.params.id, 10);
