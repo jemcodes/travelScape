@@ -21,11 +21,12 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
         include: [{
             model: User,
             as: 'followers'
-        }, 
-        {model: Article, include: Comment}
+        },
+        { model: Article, include: Comment }
         ]
     })
     // console.log(user.Articles[0])
+    // blurb of article content
     const penPalCount = user.followers.length
     user.Articles.forEach(article => {
         let substring = article.content.substring(0, 200);
@@ -33,9 +34,7 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
     })
 
     if (user) {
-
         res.render('profile', { user, csrfToken: req.csrfToken(), penPalCount, loggedIn })
-
     } else {
         next(profileNotFoundError(userId));
     }
@@ -58,7 +57,7 @@ router.get('/:id(\\d+)/penpals', requireAuth, csrfProtection, asyncHandler(async
     const penPalCount = user.followers.length
     //  const penpals = user.followers.map(user => user.pen_name)
     if (user) {
-        res.render('penPals', { user, csrfToken: req.csrfToken(), penPalCount, loggedIn})
+        res.render('penPals', { user, csrfToken: req.csrfToken(), penPalCount, loggedIn })
     } else {
         next(profileNotFoundError(userId));
     }

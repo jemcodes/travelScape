@@ -13,6 +13,7 @@ const articlesRouter = require('./routes/articles');
 const newsfeedRouter = require('./routes/newsfeed');
 const { sessionSecret } = require('./config')
 const { restoreUser } = require('./auth') // double check w alec
+
 /************************************** REQUIRED STUFF DONT TOUCH *******************************************************/
 const app = express();
 
@@ -48,7 +49,6 @@ app.use('/users', usersRouter);
 app.use('/articles', articlesRouter);
 // Profiles Router
 app.use('/profiles', profilesRouter);
-
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

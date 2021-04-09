@@ -883,8 +883,199 @@ const followData = [
   },
 ];
 
+const stampsData = [
+  {
+    articleId: 7,
+    userId: 5,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 1,
+    userId: 2,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 2,
+    userId: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 3,
+    userId: 3,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 4,
+    userId: 5,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 14,
+    userId: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 13,
+    userId: 2,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 12,
+    userId: 3,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 4,
+    userId: 4,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 7,
+    userId: 5,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 14,
+    userId: 5,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 6,
+    userId: 13,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 8,
+    userId: 9,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 6,
+    userId: 25,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 15,
+    userId: 26,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 8,
+    userId: 28,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 9,
+    userId: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 11,
+    userId: 2,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 14,
+    userId: 3,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 15,
+    userId: 4,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 9,
+    userId: 3,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 8,
+    userId: 28,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 5,
+    userId: 21,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 9,
+    userId: 20,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 15,
+    userId: 18,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 14,
+    userId: 9,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 13,
+    userId: 8,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 12,
+    userId: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 11,
+    userId: 2,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 11,
+    userId: 4,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    articleId: 13,
+    userId: 2,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+
+]
+
 module.exports = {
   articlesData,
   commentsData,
-  followData
+  followData,
+  stampsData
 }

@@ -4,6 +4,7 @@ append head
 	link(rel='stylesheet' href='/stylesheets/navbar.css')
 	link(rel='stylesheet' href='/stylesheets/single-article.css')
 	script(type='text/javascript' src='/javascripts/navbar.js')
+	script(type='text/javascript' src='/javascripts/stamps.js')
 
 
 block content
@@ -23,11 +24,21 @@ block content
 		.article__container-content
 			p#articleText= article.content
 		div(class='article__container-icons')
-			.article__comments-icon
-				img#commentImg(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
+			//- .article__comments-icon
+			//- 	img#commentImg(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
 				//- number of comments add here
-			.article__stamps-icon
-				img#stampImg(src="https://cdn3.iconfinder.com/data/icons/office-269/32/Office_Expanded_32pxl_Stamps-512.png")
+			.article__container-stamps-icon
+				//- a(href=`https://cdn3.iconfinder.com/data/icons/office-269/32/Office_Expanded_32pxl_Stamps-512.png` class='stampImg')= `${stampNum} Stamps`
+				//- img#stampImg(src="https://cdn3.iconfinder.com/data/icons/office-269/32/Office_Expanded_32pxl_Stamps-512.png")
+				//- button#stampButton(class="score") Stamp
+				if isStamped
+					//- button#stampButton(type='submit') Stamped
+					img(id='like' class=`${article.id} is-stamped` src='https://www.syracuse.com/resizer/iTVUStx297EuY1A26zkFyUMPtH8=/1280x0/smart/arc-anglerfish-arc2-prod-advancelocal.s3.amazonaws.com/public/KJK724T5GBFZHMUUF7EVRWXLZE.png')
+					span(id='stamp-count')= `${stampNum} Stamps`
+				else 
+					//- button#stampButton(type='submit') Stamp
+					img(id='like' class=`${article.id}` src='https://upload.wikimedia.org/wikipedia/commons/e/e6/Swedish_stamp_1886_10_%C3%96re_POST.054078.jpg')
+					span(id='stamp-count')= `${stampNum} Stamps`
 				//- number of stamps add here
 		.form
 			form(action=`/articles/${article.id}` method='post')
