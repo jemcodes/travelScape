@@ -14,7 +14,7 @@ block content
 		a(href=`#` class="nav-item pen-pal-link") About Us
 		img(src="/images/logo-thin.png" class="logo")
 		a(href=`/newsfeed` class="nav-item") Home
-		a(href=`/profiles/${loggedIn}` class="nav-item") My Profile
+		a(href=`/profiles/${userId}` class="nav-item") My Profile
 		form(action="/profiles/logout" method="post")
 			button(type="submit" class="nav-item") Log Out
 	.article__container 

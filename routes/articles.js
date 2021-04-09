@@ -48,6 +48,7 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
     const { userId } = req.session.auth;
     const user = await db.User.findByPk(userId);
 
+
     // console.log(res.locals.user)
     let isStamped = false
     const loggedUser = res.locals.user.id
@@ -70,7 +71,8 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
         user,
         comments,
         stampNum,
-        isStamped
+        isStamped,
+        userId
     })
 
     if (!article) {
