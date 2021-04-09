@@ -3,6 +3,7 @@ const router = express.Router();
 const db = require('../db/models');
 const { check, validationResult } = require('express-validator');
 const { asyncHandler, csrfProtection } = require('./utils');
+const { requireAuth } = require('../auth');
 
 const validateArticle = [
     check('title')
@@ -25,8 +26,8 @@ const articleNotFoundError = (id) => {
     return err;
 }
 
-// getting single article
-router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
+// GETTING one single article
+router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, res) => {
     const articleId = parseInt(req.params.id, 10);
     // FOR STAMPS
     const article = await db.Article.findByPk(articleId, {
@@ -77,7 +78,38 @@ router.get('/:id(\\d+)', csrfProtection, asyncHandler(async (req, res) => {
 
 }))
 
-// getting your form to write article
+const commentValidators = [
+    check('comment')
+        .exists({ checkFalsy: true })
+        .withMessage('Please provide a valid input')
+        .isLength({ max: 255 })
+        .withMessage('Your comment cannot be longer than 255 characters.')
+]
+
+// POSTING COMMENTS
+router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandler(async (req, res) => {
+    // const { userId } = req.session.auth;
+    // const user = await db.User.findByPk(userId);
+
+    const articleId = req.params.id
+    const article = await db.Article.findByPk(articleId, {
+        include: User
+    });
+
+    const { comment } = req.body
+    await Comment.create({
+        userId: res.locals.user.id,
+        articleId,
+        content: comment,
+    })
+    const comments = await Comment.findAll({
+        where: { articleId }
+    })
+
+    res.json(comments);
+}))
+
+// GETTING create article form
 router.get('/create', csrfProtection, asyncHandler(async (req, res, next) => {
     const article = db.Article.build();
     res.render('create-article', {
@@ -87,7 +119,7 @@ router.get('/create', csrfProtection, asyncHandler(async (req, res, next) => {
     })
 }));
 
-// posting article
+// POSTING AN ARTICLE
 router.post('/create', csrfProtection, validateArticle, asyncHandler(async (req, res, next) => {
     const { title, content, imageSrc } = req.body;
 
@@ -114,7 +146,7 @@ router.post('/create', csrfProtection, validateArticle, asyncHandler(async (req,
     }
 }));
 
-// editing articles
+// EDITING AN ARTICLE
 router.put('/:id(\\d+)', csrfProtection, validateArticle, asyncHandler(async (req, res, next) => {
     const articleId = parseInt(req.params.id, 10);
     const article = await db.Article.findByPk(articleId);
@@ -142,6 +174,7 @@ router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
     res.redirect('/newsfeed') // OR PROFILE ROUTE
 }));
 
+// POSTING A STAMP ON AN ARTICLE
 router.post('/:id(\\d+)/stamps', asyncHandler(async (req, res) => {
     const articleId = parseInt(req.params.id, 10);
     const { userId } = req.session.auth;
