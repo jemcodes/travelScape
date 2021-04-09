@@ -5,7 +5,7 @@ append head
 	link(rel='stylesheet' href='/stylesheets/single-article.css')
 	script(type='text/javascript' src='/javascripts/navbar.js')
 	script(type='text/javascript' src='/javascripts/stamps.js')
-	script(type='text/javascript' src='/javascripts/comments.js')
+	script(type='text/javascript' src='/javascripts/comments.js' defer) 
 
 
 block content
@@ -52,13 +52,14 @@ block content
 						button#commentBtn(type='submit') SHARE
 		#comments__container
 			each comment in comments 
-				.comments__author
-					p #{comment.User.pen_name} 
-				.comments__content
-					p=comment.content
-				.comments__date 
-					p=comment.createdAt
-				br
+				div#each-comment
+					.comments__author
+						p #{comment.User.pen_name} 
+					.comments__content
+						p=comment.content
+					.comments__date 
+						p=comment.createdAt
+					br
 
 	//- .footer__container
 	//- 	a(href="https://github.com") 

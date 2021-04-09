@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let stampNumber = parseInt(stampNum.innerHTML, 10)
 
     // try {
-    const res = await fetch(`http://localhost:8080/articles/${articleId}/stamps`, {
+    const res = await fetch(`/articles/${articleId}/stamps`, {
       method: 'POST',
       headers: {
         "Content-Type": "application/json",

@@ -83,7 +83,7 @@ router.post('/signup', csrfProtection, userValidators,
       pen_name,
       email,
     });
-    console.log(user)
+    // console.log(user)
     const validatorErrors = validationResult(req);
 
     if (validatorErrors.isEmpty()) {

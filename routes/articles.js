@@ -61,7 +61,8 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
             isStamped = true;
         }
     })
-
+    // console.log('banana')
+    // console.log(req.csrfToken())
     res.render('single-article', {
         title: article.title,
         article,
@@ -88,25 +89,26 @@ const commentValidators = [
 
 // POSTING COMMENTS
 router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandler(async (req, res) => {
-    // const { userId } = req.session.auth;
-    // const user = await db.User.findByPk(userId);
-
+    const { userId } = req.session.auth;
+    const user = await db.User.findByPk(userId);
+    // console.log('jslkdf3453te')
     const articleId = req.params.id
     const article = await db.Article.findByPk(articleId, {
-        include: User
+        include: db.User
     });
 
     const { comment } = req.body
-    await Comment.create({
+    const elements = await db.Comment.create({
         userId: res.locals.user.id,
         articleId,
         content: comment,
     })
-    const comments = await Comment.findAll({
+    const comments = await db.Comment.findAll({
         where: { articleId }
     })
 
-    res.json(comments);
+    res.json({ elements, user });
+    // res.send(comments);
 }))
 
 // GETTING create article form
