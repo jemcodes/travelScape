@@ -24,7 +24,7 @@ module.exports = {
         pen_name: 'euniceparkk',
         email: 'eunice@gmail.com',
         bio: "Hey y'all! I'm Eunice.There's truly nothing I love more than traveling. Being 38,000 feet high on route to my destination is my happy place.",
-        profile_pic: "../public/images/eunice.png",
+        profile_pic: "/images/eunice.png",
         hashedPW: password,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -33,7 +33,7 @@ module.exports = {
         pen_name: 'bilbopicard',
         email: 'jamie@gmail.com',
         bio: "I'm Jamie. I like to go new places and try new things. I have a Bachelors in Nursing but am trying to learn how to code but I'm a potato.",
-        profile_pic: "../public/images/jamie.png",
+        profile_pic: "/images/jamie.png",
         hashedPW: password,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -42,7 +42,7 @@ module.exports = {
         pen_name: 'jemcodes',
         email: 'jane@gmail.com',
         bio: "Hiya! I'm jane and I live to travel. I'm learning to code and can't wait to take my new skills around the world!",
-        profile_pic: "../public/images/jane.png",
+        profile_pic: "/images/jane.png",
         hashedPW: password,
         createdAt: new Date(),
         updatedAt: new Date()
@@ -51,7 +51,7 @@ module.exports = {
         pen_name: 'patricknuttree',
         email: 'patrick@gmail.com',
         bio: "I am a software engineer in training. I have a background in sales, politics and fundraising. Along with a bachelors in sociology and a masters in public administration.",
-        profile_pic: "../public/images/patrick.png",
+        profile_pic: "/images/patrick.png",
         hashedPW: password,
         createdAt: new Date(),
         updatedAt: new Date()

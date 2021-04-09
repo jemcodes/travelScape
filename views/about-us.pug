@@ -1,0 +1,54 @@
+extends layout.pug 
+
+append head 
+  link(rel='stylesheet' href='/stylesheets/navbar.css')
+  link(rel='stylesheet' href='/stylesheets/about-us.css')
+
+block content 
+  .layout 
+    .intro__container 
+      h1#header1 We all have an escape. We developers, choose Travel.
+      p#description By re-creating the publishing platform 'Medium', we present to you Travelscape. A place where stories, adventures, and conversations are shared. In hopes to venture  into the undiscovered fascinations of the world.
+        //- button(type='click' class='github-repo') Our Repository on GitHub
+      div#git-button
+        a#git-link(href='https://github.com/jemcodes/travelScape') Our Repository on GitHub
+    .bio__container
+      .bio__container-person
+        .developer Eunice Park
+          img#image(src='/images/eunice.png')
+          .bio
+            //- p.name Eunice Park 
+            .developer__links
+              a.link#github(href='https://github.com/euniceparkk') Github
+              a.link#linkedin(href='https://www.linkedin.com/in/euniceparkk/') Linkedin
+            .developer__story By re-creating the publishing platform 'Medium', we present to you Travelscape. A place where stories, adventures, and conversations are shared. In hopes to venture into the undiscovered fascinations of the world.
+
+      .bio__container-person
+        .developer Jamie Sullivan
+          img#image(src='/images/jamie.png')
+          .bio 
+            //- p.name Jamie Sullivan 
+            .developer__links
+              a.link#github(href='https://github.com/bilbopicard') Github
+              a.link#linkedin(href='https://www.linkedin.com/in/sullivan-jamie/') Linkedin
+            .developer__story By re-creating the publishing platform 'Medium', we present to you Travelscape. A place where stories, adventures, and conversations are shared. In hopes to venture into the undiscovered fascinations of the world.
+
+      .bio__container-person
+        .developer Jane Martin
+          img#image(src='/images/jane.png')
+          .bio 
+            //- p.name Jane Martin 
+            .developer__links
+              a.link#github(href='https://github.com/jemcodes') Github
+              a.link#linkedin(href='https://www.linkedin.com/in/jemcodes/') Linkedin
+            .developer__story By re-creating the publishing platform 'Medium', we present to you Travelscape. A place where stories, adventures, and conversations are shared. In hopes to venture into the undiscovered fascinations of the world.
+
+      .bio__container-person
+        .developer Patrick Nusbaum
+          img#image(src='/images/patrick.png')
+          .bio 
+            //- p.name Patrick Nusbaum
+            .developer__links
+              a.link#github(href='https://github.com/patricknuttree') Github
+              a.link#linkedin(href='https://www.linkedin.com/in/patrick-nusbaum-mpa') Linkedin
+            .developer__story By re-creating the publishing platform 'Medium', we present to you Travelscape. A place where stories, adventures, and conversations are shared. In hopes to venture into the undiscovered fascinations of the world.
