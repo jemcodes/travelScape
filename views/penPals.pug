@@ -1,25 +1,23 @@
 extends layout.pug 
 
 append head
+  link(rel='stylesheet' href='/stylesheets/navbar.css')
   link(rel='stylesheet' href='/stylesheets/penpals.css')
   script(type='text/javascript' src='/javascripts/navbar.js')
 
 block content
-  div(class="nav-bar-container")
-  //- INDIVIDUAL NAME PROFILE CLICKABLE:
-  a(href=`/profiles/${user.id}` class="user-name-link")= user.pen_name
-  //- FOLLOWERS CLICKABLE??:
-
-  a(href=`/profiles/${user.id}/penpals` class="pen-pal-link")= `${penPalCount} Pen Pals`
-  //- a(href in a BUTTON/DROPDOWN?? to go to user's personal profile)
-  //- a(href='/profle???' class="")
-  a(href=`/newsfeed`) Article Home
-  a(href=`/profiles/${loggedIn}`) My Profile
-  form(action="/profiles/logout" method="post")
-    button(type="submit") Log Out
-    
+  nav(class="nav__container")
+    a(href=`/profiles/${user.id}` class="nav-item user-name-link")= user.pen_name
+    a(href=`/profiles/${user.id}/penpals` class="nav-item pen-pal-link")= `${penPalCount} Pen Pals`
+    img(src="/images/logo-thin.png" class="logo")
+    a(href=`/newsfeed` class="nav-item") Home
+    a(href=`/profiles/${loggedIn}` class="nav-item") My Profile
+    form(action="/profiles/logout" method="post")
+      button(type="submit" class="nav-item") Log Out  
+  h1(id="pen-pals-h1")=`${user.pen_name}'s Pen Pals`
   div(class="pen-pal-container")
     div(class="pen-pal-contents")
-      ul 
-        each penpal in user.followers 
-          li(class="pen-pal-list-item")=penpal.pen_name
+      ul(class="pen-pal-list-container") 
+        each penpal in user.followers
+          a(class= "pen-pal-links" href=`/profiles/${penpal.id}`)
+            li(class="pen-pal-list-item")=penpal.pen_name  

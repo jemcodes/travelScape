@@ -2,31 +2,97 @@
 
 body {
     font-family: 'Playfair Display', serif;
-    background-color: #F7F7F7;  
+    background-color: #F7F7F7; 
+    /* background-image: url("https://unsplash.com/photos/HoevDVvxInw");  */
+    /* background-color: #7CA5B8; */
+    /* background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* background-color: #F7F7F7; */
+    /* display: flex;
+    flex-direction: row;
+    justify-content: center;  */
 } 
-
+#pen-pals-h1 {
+    color: rgba(0,0,0,.5);
+    margin: 18vh auto 10px auto;
+    width: 75vh;
+    padding-bottom: 10px;
+    /* border: 3px solid red; */
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0,0,0,.25);
+}
 .pen-pal-contents {
     position: sticky;
-    top: 15vh;
+    margin-left: 0px;
+    margin-right: 0px;
     height: 85vh;
-    padding: 20px 40px;
+    padding: 20px 0px 40px 0px;
     background-color: #F7F7F7;
     display: flex;
     justify-content: center;
     border-right: 2px solid black;
-    /* border-top: 2px solid black; */
-    /* max-width: 200px; */
-    border: 5px solid red;
+    /* border: 5px solid red; */
+    position: relative;
 }
 
-.user-article-container {
+.pen-pal-links{
+    border: 1px solid rgba(0,0,0,.5);
+    box-sizing: border-box;
+    width: 300px;
+    /* max-width: 300px; */
+    height: 150px;
+    margin:0px 0px 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFF3EB;
+    transition: all .35s ease-in;
+    text-decoration: none;
+    border-radius: 7px;
+    /* box-shadow: 10px 3px 3px 3px rgba(203, 153, 126, 0.5) ; */
+    /* flex-wrap: nowrap; */   
+}
+
+.pen-pal-links:hover{
+    background-color: rgba(203, 153, 126, .5);
+}
+
+/* .mini-logo-container{
+    border: 3px solid red;
+    box-sizing: border-box;
+
+}
+
+.pen-pal-logo {
+    height: 100px;
+    width: 100px;
+} */
+
+/* .footer{
+    height: 100px;
+    position:fixed;
+    background-color: #CB997E;
+    
+} */
+
+.pen-pal-list-container {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+
+
+}
+/* .user-article-container {
     padding-top: 50px;
     background-color: #F7F7F7;
     border: 5px solid red;
-}
+} */
 
-.pen-pal-contents ul {
-    list-style-type: none;
-}
 
 
