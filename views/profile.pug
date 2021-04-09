@@ -28,9 +28,15 @@ block content
   div(class="main-container")
     div(class="pic-bio-container")
       ul(class="author-info-list") 
-        img(id="profile-pic" src=`/images/avatar-placeholder.svg`)
+        if user.profile_pic 
+          img(id="profile-pic" src=`${user.profile_pic}`)
+        else 
+          img(id='profile-pic' src='/images/avatar-placeholder.svg')
         li= user.pen_name
-        li(id="profile-bio") I'm a bio! This info would be all about my author!
+        if user.bio
+          li(id="profile-bio")= user.bio
+        else 
+          li(id='profile-bio') This person has no bio.
     div(class="user-article-container")
       ul
         each article in user.Articles 
