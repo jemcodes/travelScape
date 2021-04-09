@@ -5,6 +5,7 @@ append head
 	link(rel='stylesheet' href='/stylesheets/single-article.css')
 	script(type='text/javascript' src='/javascripts/navbar.js')
 	script(type='text/javascript' src='/javascripts/stamps.js')
+	script(type='text/javascript' src='/javascripts/comments.js')
 
 
 block content
@@ -41,14 +42,15 @@ block content
 					span(id='stamp-count')= `${stampNum} Stamps`
 				//- number of stamps add here
 		.form
-			form(action=`/articles/${article.id}` method='post')
+			form(action=`/articles/${article.id}` method='post' id='comment-form')
 				input(type='hidden' name='_csrf' value=csrfToken)
+				input(type="hidden" value=article.id id="article-id")
 				.form__inputs
 					.form__comment
-						input(type="text" name="comment" placeholder="Comments? Opinions?")
+						input#commentBody(type="text" name="comment" placeholder="Comments? Opinions?")
 					.form__button
-						button(type='submit') SHARE
-		.comments__container
+						button#commentBtn(type='submit') SHARE
+		#comments__container
 			each comment in comments 
 				.comments__author
 					p #{comment.User.pen_name} 
