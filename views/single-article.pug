@@ -25,6 +25,9 @@ block content
 			a(class='article__user-link' href=`/profiles/${user.id}`) #{article.User.pen_name}
 		.article__container-content
 			p#articleText= article.content
+		div(class='article-delete-container')
+		form(action=`/articles/${article.id}/delete` method="post")
+			button(type="submit" class="delete-button") delete
 		div(class='article__container-icons')
 			//- .article__comments-icon
 			//- 	img#commentImg(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
