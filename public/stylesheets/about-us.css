@@ -82,14 +82,20 @@ body{
 
 .bio__container-person{
   width: 90%;
-  /* padding: 20px; */
   /* border: solid 5px blue; */
 
 }
 
+.developer__story{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+
 #image{
   /* height: 250px; */
-  max-width: 100%;
+  padding: 10px;
+  max-width: 95%;
   margin: 0 auto;
 }
 
@@ -104,7 +110,13 @@ body{
 
 .developer__links{
   /* font-size: 40px; */
-  padding: 5px
+  padding-right: 10px;
+}
+
+.links{
+  text-decoration: none;
+  font-weight: 500;
+  padding: 20px;
 }
 
 #github{

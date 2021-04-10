@@ -1,7 +1,7 @@
 
 
 .nav__container {
-  background-color: #CB997E;
+  background-color: #cb997e;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -10,8 +10,8 @@
   padding: 0 38px;
   position: fixed;
   top: 0;
-  border-bottom: 2px solid black;
-  /* box-shadow:  2px 6px 4px 0px rgba(0,0,0,0.7); */
+  /* border-bottom: 2px solid black; */
+  box-shadow:  2px 2px 2px 2px rgba(75, 70, 70, 0.7);
   /* border: solid 5px red; */
 }
 
@@ -31,6 +31,14 @@
   width: 33vw;
 } */
 
+.leftSide{
+  display: flex;
+}
+
+.rightSide{
+  display: flex;
+}
+
 .logo{
   margin: 0 auto;
   /* display: block; */
@@ -41,6 +49,25 @@
   display: flex;
   align-items: center;
 } */
+
+#followBtn{
+  font-size: 1.3rem;
+  border: none;
+  padding: 0 4px 4px 4px;
+  margin: 0 10px;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0,0,0,0);
+  white-space: nowrap;
+  text-align: center;
+  /* border: solid 5px red; */
+}
+
+#followBtn:hover {
+  /* border: 2px solid black; */
+  /* background-color: #7BA5B8;  */
+  /* border: 1px solid black; */
+}
 
 
 .nav-item {

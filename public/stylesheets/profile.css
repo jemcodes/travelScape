@@ -16,7 +16,7 @@ body {
     top: 15vh;
     height: 85vh;
     padding: 20px 40px;
-    background-color: #7CA5B8;
+    background-color: #7ca5b86e;
     display: flex;
     justify-content: center;
     border-right: 2px solid black;
@@ -42,6 +42,15 @@ body {
     background-color: #F7F7F7;
     /* border: 5px solid red; */
 }
+
+/* THIS IS INSIDE THE NAVBAR.CSS */
+/* .leftSide{
+    display: flex;
+}
+
+.rightSide{
+    display: flex;
+} */
 
 .user-article-container ul {
     display: flex;
@@ -78,10 +87,16 @@ li {
 
 
 #profile-bio {
-    height: 200px;
-    background-color: #FFF3EB;
-    border-radius: 4px;
-    padding: 5px;
+    height: 450px;
+    width: 175px;
+    background-color: #fff3eb8a;
+    border-radius: 2px;
+    padding: 20px 15px;
+    /* border: 5px solid red; */
+}
+
+#profile-bio:hover{
+    background-color: #735d782c;
 }
 
 li {
@@ -93,3 +108,4 @@ li {
 .commentImg {
     width: 20px;
 }
+
