@@ -12,6 +12,7 @@ router.get('/', requireAuth, csrfProtection, asyncHandler(async (req, res, next)
   //NEED TO ADD ORDER BY STAMP COUNT WHEN STAMP DB IS DONE. 
   const articles = await db.Article.findAll({
     include: db.User,
+    order: [['createdAt', 'DESC']]
   })
 
   const { userId } = req.session.auth;

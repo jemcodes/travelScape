@@ -1,34 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
 body {
-  font-family: Playfair Display;
+  font-family: "Playfair Display";
   font-size: 12px;
   background-color: #F7F7F7;
 }
 
 .create-form-container {
-  display: flex;
-  justify-content: center;
+  height: 85vh;
+  margin-top: 10vh;
+  /* display: flex;
+  flex-direction: row;
+  justify-content: center; */
 }
 
 .create-form-contents {
+  display: flex;
   width: 80%;
   margin: 0 auto;
   flex-direction: column;
   /* border: solid 5px red; */
   max-width: 700px;
-  justify-content: center;
+  align-items: center;
 }
 
+form{
+  width:100%;
+}
 input {
   width: 100%;
 }
 
 #title {
   border: solid 1px #707070;
-  margin: 10px 0 10px 0;
+  margin: 10px auto 10px auto;
   padding: 10px;
-  color: #A89696;
   font-family: Playfair Display;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   text-align: left;
 }
@@ -42,6 +50,7 @@ outline: 3px solid rgb(170, 188, 216);
   margin: 0 0 10px 0;
   padding: 20px 0 0 10px;
   width: 100%;
+  height: 50vh;
   font-family: Playfair Display;
   font-size: 15px;
   text-align: left;
@@ -55,9 +64,9 @@ outline: 3px solid rgb(170, 188, 216);
 #imageSrc {
   border: solid 1px #707070;
   /* margin: 20px 40px 10px 40px; */
-  color: #A89696;
   font-family: Playfair Display;
-  padding: 10px 0 40px 10px;
+  padding: 10px;
+  margin-bottom: 20px;
   font-size: 15px;
   text-align: left;
 }
@@ -66,21 +75,19 @@ outline: 3px solid rgb(170, 188, 216);
 outline: 3px solid rgb(170, 188, 216);
 }
 
-.form__button {
-  font-family: Playfair Display;
-  /* border: solid 3px red; */
-  margin: 10px 0 10px 0;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
+
 
 
 .publish-button {
   margin: 5px 15px 0 10px;
-  width: 50%;
-  font-family: Playfair Display;
+  width: 25%;
+  padding: 7px 0px;
+  border: 1px solid rgba(0, 0, 0, .5);
+  border-radius: 12px;
+  font-family: "Playfair Display";
+  color: rgba(0, 0, 0, .75);
   background-color: #D3CACA;
+  font-size: 20px;
 }
 
 .publish-button:hover {
@@ -91,8 +98,18 @@ outline: 3px solid rgb(170, 188, 216);
   margin: 7px 20px 0 10px;
   color: black;
   font-size: 14px;
+  text-decoration: none;
 }
 
 .cancel-button:hover {
   color: #B20000;
+}
+
+.title-blurb{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, .75);
 }
