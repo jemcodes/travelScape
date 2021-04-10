@@ -165,10 +165,11 @@ router.put('/:id(\\d+)', csrfProtection, validateArticle, asyncHandler(async (re
     }
 }));
 
-router.delete('/:id(\\d+)', asyncHandler(async (req, res, next) => {
+//Deleting an article 
+router.post('/:id(\\d+)/delete', asyncHandler(async (req, res, next) => {
     const articleId = parseInt(req.params.id, 10);
     const article = await db.Article.findByPk(articleId);
-
+    console.log("THIS IS THE ARTICLE",article)
     if (article) {
         await article.destroy();
         res.status(204).end();
