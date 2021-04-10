@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const db = require('../db/models');
-const { User, Article, PenPal, Comment } = db;
+const { User, Article, PenPal, Comment, Stamp } = db;
 const { check, validationResult } = require('express-validator');
 const { loginUser, logoutUser, requireAuth } = require('../auth');
 const { asyncHandler, csrfProtection } = require('./utils');
@@ -22,7 +22,7 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
             model: User,
             as: 'followers'
         },
-        { model: Article, include: Comment }
+        { model: Article, include: [Comment, Stamp] }
         ]
     })
     // console.log(user)
