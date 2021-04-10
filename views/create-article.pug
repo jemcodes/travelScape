@@ -1,25 +1,26 @@
 extends layout.pug
 
-link(rel='stylesheet' href='/stylesheets/navbar.css')
-
 include utils.pug
 
 append head 
+	link(rel='stylesheet' href='/stylesheets/create-article-navbar.css')
 	link(rel='stylesheet' href='/stylesheets/create.css')
-	link(rel='stylesheet' href='/stylesheets/navbar.css')
 	script(type='text/javascript' src='/javascripts/navbar.js')
 
 block content
-  nav(class="nav__container")
-	a(href="/newsfeed/")
+	nav(class="nav__container")
+		img(src="/images/logo-thin.png" class="logo")
 	+validationErrorSummary(errors)
-	div(class="create-form-container")
+	div(class="create-form-container") 
+		div(class="title-blurb") Tell us a story...
 		div(class="create-form-contents")
-			.form(action="/articles/create" method="post" class="articles-create__container")
+			form(action="/articles/create" method="post" class="articles-create__container")
 				input(type="hidden" name="_csrf" value=csrfToken)
-				+fieldNoLabel('articles-create__title', 'title', article.title, 'text', 'TITLE')
-				+fieldNoLabel('articles-create__content', 'content', article.content, 'textarea', 'Tell your story...')
-				+fieldNoLabel('articles-create__image', 'imageSrc', article.imageSrc, 'url', 'Share your photo here...')
-				.form__button
-					button(type="submit" class="publish-button") PUBLISH
-					a(href="/newsfeed" class="cancel-button") CANCEL
+				div(class='articles-create__title')
+					input(id="title" name='title', type='text', placeholder='TITLE')
+				div(class='articles-create__content')
+					textarea(id="content" name='content', placeholder='Tell your story...')
+				div(class='articles-create__image')
+					input(id="imageSrc" name='imageSrc', type='url', placeholder='Share your photo here...')
+				button(type="submit" class="publish-button") PUBLISH
+				a(href="/newsfeed" class="cancel-button") CANCEL

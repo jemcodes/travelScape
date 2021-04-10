@@ -14,9 +14,6 @@ const validateArticle = [
     check('content')
         .exists({ checkFalsy: true })
         .withMessage('Come on tell us a story!!!!!!!'),
-    check('imageSrc')
-        .isURL()
-        .withMessage('Image must be a valid URL.'),
 ]
 
 const articleNotFoundError = (id) => {
@@ -115,12 +112,12 @@ router.post('/:id(\\d+)/comments', csrfProtection, commentValidators, asyncHandl
 
 // GETTING create article form
 router.get('/create', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
-    const article = db.Article.build();
+    // const article = await db.Article.build();
     const { userId } = req.session.auth
     const user = await db.User.findByPk(userId)
     res.render('create-article', {
         title: 'Write An Article!',
-        article,
+        // article,
         user,
         csrfToken: req.csrfToken()
     })
@@ -129,7 +126,7 @@ router.get('/create', csrfProtection, requireAuth, asyncHandler(async (req, res,
 // POSTING AN ARTICLE
 router.post('/create', csrfProtection, validateArticle, asyncHandler(async (req, res, next) => {
     const { title, content, imageSrc } = req.body;
-
+    const { userId } = req.session.auth
     const article = await db.Article.build({
         title,
         content,
@@ -137,11 +134,12 @@ router.post('/create', csrfProtection, validateArticle, asyncHandler(async (req,
         userId
     });
     const validatorErrors = validationResult(req);
+    console.log("THIS IS THE CRAP", validatorErrors)
 
     // redirect to newly created article
     if (validatorErrors.isEmpty()) {
         await article.save();
-        res.redirect(`articles/${article.id}`)
+        res.redirect(`/articles/${article.id}`)
     } else {
         const errors = validatorErrors.array().map((error) => error.msg)
         res.render('create-article', {
