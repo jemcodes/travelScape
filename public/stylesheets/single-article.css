@@ -1,27 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-body {
-    font-family: 'Playfair Display', serif;
-}
-
 body{
   box-sizing: border-box;
-  font-family: Playfair Display;
+  font-family: 'Playfair Display', serif;
   background-color: #F7F7F7;
 }
-
-/* .nav-logo{
-  margin: 0 auto;
-  display: block;
-  width: 40px;
-  height: 40px;
+/* .logo {
+  height: 100%;
+  width: auto;
 } */
-
-/* .article-div{
-  display: flex;
-  justify-content: center;
-} */
-
 .article__container{
   width: 90%;
   margin: 15vh auto 0;
@@ -39,6 +26,8 @@ body{
   font-weight: bold;
   /* text-shadow: 2px 2px 2px rgba(161, 170, 169, .9); */
   padding-bottom: 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.5);
+  margin-bottom: 10px;
 }
 
 .article__user{
@@ -57,12 +46,15 @@ body{
 }
 
 .article__container-content{
-  margin: 25px 0;
+  margin: 20px 0;
+  background-color: rgba(211,211,211,0.75);
+  padding: 2px 15px;
+  border-radius: 3px;
 }
 
 #articleText{
   font-size: 12pt;
-
+  line-height: 1.5rem;
 }
 
 .article__container-image{
@@ -84,12 +76,6 @@ body{
 	margin-top: 10px;
 }
 
-/* #commentImg{
-  margin: 0 auto;
-  display: block;
-  width: 30px;
-  height: 30px;
-} */
 .form__button {
   margin-left: 10px;
   display: flex;
@@ -114,10 +100,46 @@ body{
   width: 40px;
   height: 40px;
 }
-
-.comments__container{
+h2 {
+  text-align: center;
+  font-size: 1.5rem;
+}
+#comments__container{
+  margin-top: 10px;
   grid-column: 4 / 10;
+  background-color: rgba(123,165,184,0.5);
+  padding: 2px 15px;
+  border-radius: 3px;
+}
+.comments__author {
+  padding-bottom: 0;
+  /* border-bottom: 1px solid rgba(211,211,211,1); */
+}
+.comments__author p {
+  font-size: 1.2rem;
+  margin: 2px;
+}
 
+.comments__content {
+  background-color: rgba(211,211,211,0.75);
+  /* border: 1px solid red; */
+  border-radius: 5px;
+}
+
+.comments__content p {
+  padding: 4px 4px 4px 10px;
+  margin: 5px auto;
+}
+.comments__date p {
+  font-size: 0.8rem;
+  margin: 3px auto 5px;
+}
+
+#each-comment {
+  background-color: #f7f7f7;
+  padding: 2px 5px;
+  margin: 10px auto;
+  border-radius: 5px;
 }
 
 .form__inputs{

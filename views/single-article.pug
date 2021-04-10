@@ -40,7 +40,7 @@ block content
 				else 
 					//- button#stampButton(type='submit') Stamp
 					img(id='like' class=`${article.id}` src='https://upload.wikimedia.org/wikipedia/commons/e/e6/Swedish_stamp_1886_10_%C3%96re_POST.054078.jpg')
-					span(id='stamp-count')= `${stampNum} Stamps`
+					span(id='stamp-count')= `${stampNum} Stamps`	
 				//- number of stamps add here
 		.form
 			form(action=`/articles/${article.id}` method='post' id='comment-form')
@@ -52,6 +52,7 @@ block content
 						textarea#commentBody(type="text" name="comment" placeholder="Comments? Opinions?" cols="30" rows="5")
 					.form__button
 						button#commentBtn(type='submit') SHARE
+		h2 Comments
 		#comments__container
 			each comment in comments 
 				div#each-comment
@@ -61,7 +62,6 @@ block content
 						p=comment.content
 					.comments__date 
 						p=comment.createdAt
-					br
 
 	//- .footer__container
 	//- 	a(href="https://github.com") 

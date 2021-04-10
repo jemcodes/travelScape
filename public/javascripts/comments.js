@@ -26,16 +26,22 @@ commentBtn.addEventListener('click', async (e) => {
   // console.log("9741890-87654678908765467890876546789098765467890", res)
   // const jsonRes = await res.json();
   // console.log("iahf**********************", jsonRes)
-  const commentsDiv = document.getElementById('comments__container');
+
   // let commentsHTML = [];
   // const postedComments = Array.from(jsonRes);
-  const largeContainer = document.getElementById('comments__container')
-  const smallContainer = document.createElement('div')
+  const commentsContainer = document.getElementById('comments__container')
+  const eachComment = document.createElement('div');
+  const userContainer = document.createElement('div')
+  const commentContainer = document.createElement('div')
+  const dateContainer = document.createElement('div')
   const newComment = document.createElement('p');
   const newUser = document.createElement('p');
   const newDate = document.createElement('p');
 
-  // newComment.appendChild(body.comment);
+  eachComment.setAttribute('id', 'each-comment');
+  userContainer.classList.add('comments__author');
+  commentContainer.classList.add('comments__content');
+  dateContainer.classList.add('comments__date');
   // comments.appendChild(newComment)
   // commentsDiv.prepend(newComment)
 
@@ -56,11 +62,14 @@ commentBtn.addEventListener('click', async (e) => {
   newDate.innerHTML = response.elements.createdAt
 
   // console.log(largeContainer)
-  smallContainer.appendChild(newUser)
-  smallContainer.appendChild(newComment)
-  smallContainer.appendChild(newDate)
+  userContainer.appendChild(newUser)
+  commentContainer.appendChild(newComment)
+  dateContainer.appendChild(newDate)
+  eachComment.appendChild(userContainer);
+  eachComment.appendChild(commentContainer);
+  eachComment.appendChild(dateContainer);
 
-  largeContainer.prepend(smallContainer)
+  commentsContainer.prepend(eachComment);
 
 
   // console.log(response)
