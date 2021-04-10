@@ -61,6 +61,7 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
     })
     // console.log('banana')
     // console.log(req.csrfToken())
+    console.log(stampNum);
     res.render('single-article', {
         title: article.title,
         article,
