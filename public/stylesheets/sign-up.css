@@ -29,6 +29,20 @@ input {
   width: 100%;
 }
 
+.errors-container{
+  color: red;
+  display: flex;
+  justify-self: center;
+  /* border: solid 5px red; */
+  padding-left: 22%;
+  margin-left: 100px;
+  padding-bottom: 40px;
+}
+
+.alert li{
+  list-style-type: none;
+}
+
 #pen_name.form-control {
   border: solid 1px #707070;
   margin: 5px 0 10px 0;
