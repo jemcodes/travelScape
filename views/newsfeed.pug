@@ -23,8 +23,7 @@ block content
 					a(article__container-image-link href=`/articles/${article.id}`)
 						img#articleImg(src=article.imageSrc)
 				div(class='article__title')
-					a(class='article__title-link' href=`/articles/${article.id}`)
-						p= article.title
+					p(class='article__title-p'): a(class='article__title-link' href=`/articles/${article.id}`)= article.title
 				div(class='article__user') By: 
 					a(class='article__user-link' href=`/profiles/${article.User.id}`) 
 						p= article.User.pen_name
