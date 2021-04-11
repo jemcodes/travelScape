@@ -2,6 +2,7 @@ body{
   box-sizing: border-box;
   font-family: Playfair Display;
   background-color: #F7F7F7;
+  overflow-x: hidden;
 }
 
 .layout{

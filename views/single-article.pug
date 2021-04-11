@@ -3,6 +3,7 @@ extends layout.pug
 append head 
 	link(rel='stylesheet' href='/stylesheets/navbar.css')
 	link(rel='stylesheet' href='/stylesheets/single-article.css')
+	link(rel="stylesheet", href='/stylesheets/footer.css')
 	script(type='text/javascript' src='/javascripts/navbar.js')
 	script(type='text/javascript' src='/javascripts/stamps.js')
 	script(type='text/javascript' src='/javascripts/comments.js' defer) 
@@ -26,9 +27,9 @@ block content
 		.article__container-content
 			p#articleText= article.content
 		div(class='article-delete-container')
-		if userId === article.User.id
-			form(action=`/articles/${article.id}/delete` method="post")
-				button(type="submit" class="delete-button") delete
+			if userId === article.User.id
+				form(action=`/articles/${article.id}/delete` method="post")
+					button(type="submit" class="delete-button") delete
 		div(class='article__container-icons')
 			//- .article__comments-icon
 			//- 	img#commentImg(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
@@ -66,7 +67,5 @@ block content
 						p=comment.content
 					.comments__date 
 						p=comment.createdAt
+	include footer.pug
 
-	//- .footer__container
-	//- 	a(href="https://github.com") 
-	//- THIS IS BROKEN

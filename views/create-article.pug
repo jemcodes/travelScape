@@ -5,7 +5,9 @@ include utils.pug
 append head 
 	link(rel='stylesheet' href='/stylesheets/create-article-navbar.css')
 	link(rel='stylesheet' href='/stylesheets/create.css')
+	link(rel='stylesheet' href='/stylesheets/footer.css')
 	script(type='text/javascript' src='/javascripts/navbar.js')
+	
 
 block content
 	nav(class="nav__container")
@@ -24,3 +26,5 @@ block content
 					input(id="imageSrc" name='imageSrc', type='url', placeholder='Share your photo here...')
 				button(type="submit" class="publish-button") PUBLISH
 				a(href="/newsfeed" class="cancel-button") CANCEL
+	include footer.pug
+	

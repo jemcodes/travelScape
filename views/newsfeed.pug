@@ -3,6 +3,7 @@ extends layout.pug
 append head 
 	link(rel='stylesheet' href='/stylesheets/newsfeed.css')
 	link(rel='stylesheet' href='/stylesheets/navbar.css')
+	link(rel='stylesheet' href='/stylesheets/footer.css')
 	script(type='text/javascript' src='/javascripts/navbar.js')
 
 block content
@@ -25,3 +26,4 @@ block content
 			div(class='article__user') By: 
 				a(class='article__user-link' href=`/profiles/${article.User.id}`) #{article.User.pen_name}
 				//- a(class='article__user-link' href=`/profiles/${user.id}`) By: #{article.User.pen_name}
+	include footer.pug
