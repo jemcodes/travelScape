@@ -3,6 +3,7 @@ extends layout.pug
 append head 
   link(rel='stylesheet' href='/stylesheets/navbar.css')
   link(rel='stylesheet' href='/stylesheets/about-us.css')
+  link(rel='stylesheet' href='/stylesheets/footer.css')
 
 block content 
   .layout 
@@ -52,3 +53,4 @@ block content
               a.links#github(href='https://github.com/patricknuttree') Github
               a.links#linkedin(href='https://www.linkedin.com/in/patrick-nusbaum-mpa') Linkedin
             .developer__story By re-creating the publishing platform 'Medium', we present to you Travelscape. A place where stories, adventures, and conversations are shared. In hopes to venture into the undiscovered fascinations of the world.
+  include footer.pug

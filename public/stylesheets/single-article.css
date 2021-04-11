@@ -146,3 +146,23 @@ h2 {
   display: flex;
   width: 100%;
 }
+
+.article-delete-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.delete-button{
+  max-width: fit-content;
+  background-color: rgba(124, 165, 184, .5);
+  font-weight: bold;
+  border-radius: 5px;
+  padding:5px 15px 5px 15px;
+}
+
+.delete-button:hover{
+  background-color: rgba(255, 0, 0, .5);
+  box-shadow: 2px 2px 3px 3px rgb(255, 0, 0)
+
+}

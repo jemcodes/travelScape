@@ -4,6 +4,7 @@ append head
   //- link(rel='stylesheet' href='/stylesheets/reset.css')
   link(rel='stylesheet' href='/stylesheets/navbar.css')
   link(rel='stylesheet' href='/stylesheets/profile.css')
+  link(rel='stylesheet' href='/stylesheets/footer.css')
   script(type='text/javascript' src='/javascripts/followers.js' defer)
 
 block content 
@@ -51,3 +52,4 @@ block content
             img.commentImg(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
             =article.Stamps.length
             img.commentImg(src="https://cdn3.iconfinder.com/data/icons/office-269/32/Office_Expanded_32pxl_Stamps-512.png")
+  include footer.pug

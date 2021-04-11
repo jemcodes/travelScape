@@ -1,0 +1,37 @@
+
+
+.footer-container{
+  /* border: 3px solid red; */
+  box-shadow: -3px 0px 3px 2px rgba(0, 0, 0, .5);
+  width: 100%;
+  position: sticky;
+  height: 125px;
+  background-color: #CB997E;
+  font-weight: bolder;
+}
+
+.developers-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+
+}
+
+p p{
+  font-weight: bolder;
+  color: rgba(0, 0, 0, .75);
+}
+
+.footer-content-container{
+  background-color: #CB997E;
+  height: 50px;
+  margin: 0;
+}
+
+.contact-us:hover{
+
+}
+
+
+

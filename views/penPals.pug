@@ -3,6 +3,7 @@ extends layout.pug
 append head
   link(rel='stylesheet' href='/stylesheets/navbar.css')
   link(rel='stylesheet' href='/stylesheets/penpals.css')
+  link(rel='stylesheet' href='/stylesheets/footer.css')
   script(type='text/javascript' src='/javascripts/navbar.js')
 
 block content
@@ -21,3 +22,5 @@ block content
         each penpal in user.followers
           a(class= "pen-pal-links" href=`/profiles/${penpal.id}`)
             li(class="pen-pal-list-item")=penpal.pen_name  
+	include footer.pug
+  
