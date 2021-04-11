@@ -42,7 +42,7 @@ app.use(
 // create Session table if it doesn't already exist
 store.sync();
 
-app.use(restoreUser) // alec
+app.use(restoreUser)
 app.use('/', indexRouter);
 app.use('/newsfeed', newsfeedRouter)
 app.use('/users', usersRouter);

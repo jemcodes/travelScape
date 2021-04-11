@@ -61,7 +61,7 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
     })
     // console.log('banana')
     // console.log(req.csrfToken())
-    console.log(stampNum);
+    // console.log(stampNum);
     res.render('single-article', {
         title: article.title,
         article,
@@ -135,7 +135,6 @@ router.post('/create', csrfProtection, validateArticle, asyncHandler(async (req,
         userId
     });
     const validatorErrors = validationResult(req);
-    console.log("THIS IS THE CRAP", validatorErrors)
 
     // redirect to newly created article
     if (validatorErrors.isEmpty()) {
@@ -170,7 +169,7 @@ router.put('/:id(\\d+)', csrfProtection, validateArticle, asyncHandler(async (re
 router.post('/:id(\\d+)/delete', asyncHandler(async (req, res, next) => {
     const articleId = parseInt(req.params.id, 10);
     const article = await db.Article.findByPk(articleId);
-    console.log("THIS IS THE ARTICLE",article)
+    // console.log("THIS IS THE ARTICLE",article)
     if (article) {
         await article.destroy();
         res.status(204).end();

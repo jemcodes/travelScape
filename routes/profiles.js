@@ -47,7 +47,7 @@ router.get('/:id(\\d+)', requireAuth, csrfProtection, asyncHandler(async (req, r
 
 // FOLLOWING AND UNFOLLOWING A SPECIFIC USER
 router.post('/:id(\\d+)/followers', asyncHandler(async (req, res) => {
-    console.log("hello")
+    // console.log("hello")
     const isFollowId = req.params.id
     const userId = res.locals.user.id
     let follow = await PenPal.findOne({

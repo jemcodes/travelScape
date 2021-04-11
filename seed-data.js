@@ -78,7 +78,7 @@ const articlesData = [
 
   },
   {
-    title: 'Suprise Vacation for Girlfriend: SPAIN!',
+    title: 'Surprise Vacation for Girlfriend: SPAIN!',
     content: `Drumstick cow meatloaf id, porchetta short loin ut elit. Pork belly irure prosciutto ullamco capicola sint ad salami officia ham bacon landjaeger. Flank shankle consequat lorem. Fatback swine quis ea pork chop strip steak anim eu kevin pork belly salami pig kielbasa. Salami qui dolor capicola bacon occaecat quis.
 
     Venison qui esse nostrud, ut alcatra shoulder. Pancetta tenderloin beef do corned beef, shoulder in aliquip. Ham hock deserunt pork loin tempor officia, drumstick tri-tip ball tip. Jowl beef ribs consectetur hamburger doner.
@@ -94,7 +94,7 @@ const articlesData = [
 
   },
   {
-    title: 'Why Marti Gras is the best ever.',
+    title: 'Why Mardi Gras is the best ever.',
     content: `I'm baby kale chips shaman deep v taxidermy paleo mlkshk. Flannel hell of austin enamel pin fam shoreditch godard whatever biodiesel. Forage food truck selvage stumptown blue bottle kitsch poke narwhal yr squid venmo gochujang. Wayfarers dreamcatcher taiyaki, literally beard biodiesel tattooed lomo ennui cardigan pitchfork sustainable heirloom swag. Literally post-ironic truffaut scenester migas, ethical sartorial bicycle rights skateboard man bun. Raclette sriracha kombucha, pabst tacos cold-pressed put a bird on it.
 
     Green juice vexillologist fixie freegan occupy. Ugh succulents try-hard, twee jianbing messenger bag skateboard cred umami mumblecore four loko. Humblebrag tumeric YOLO kinfolk, butcher pok pok celiac umami lomo put a bird on it. Plaid listicle umami raw denim meh YOLO master cleanse. Migas dreamcatcher post-ironic distillery. PBR&B franzen sartorial polaroid meh typewriter pabst gochujang air plant godard cardigan mumblecore tacos disrupt leggings. Tousled single-origin coffee occupy kombucha yr raw denim, blue bottle bicycle rights selvage pork belly craft beer locavore literally ramps letterpress.

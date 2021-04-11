@@ -52,10 +52,13 @@ body{
   margin: 0 0 0 5px;
 }
 
-
-/* .article__user-link:hover{
+.article__user-link{
   text-decoration: none;
-} */
+}
+
+.article__user-link:hover{
+  text-decoration: underline;
+}
 
 .single-article-div{
   padding-bottom: 20px;
