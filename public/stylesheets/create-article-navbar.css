@@ -10,37 +10,13 @@
   position: fixed;
   top: 0;
   border-bottom: 2px solid black;
-  /* box-shadow:  2px 6px 4px 0px rgba(0,0,0,0.7); */
   /* border: solid 5px red; */
 }
 
-/* .nav-left-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  border: 2px solid red;
-  width: 33vw;
-}
-
-.nav-right-container {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  border: 2px solid red;
-  width: 33vw;
-} */
-
 .logo{
   margin: 0 auto;
-  /* display: block; */
-  /* width: 50%; */
   width: 600px;
 }
-/* .nav-middle-container {
-  display: flex;
-  align-items: center;
-} */
-
 
 .nav-item {
   font-size: 1.3rem;

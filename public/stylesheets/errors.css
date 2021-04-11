@@ -6,6 +6,17 @@ body{
   padding-left: 30px;
 }
 
+.error-container{
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+}
+
 p{
   font-size: xxx-large;
+  text-align: center;
+}
+
+#logo{
+  width: 60%;
 }

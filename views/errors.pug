@@ -3,10 +3,12 @@ extends layout.pug
 append head
   link(rel='stylesheet' href='/stylesheets/errors.css')
 
-block content 
-
+block content
+  div(class="error-container")
+    img#logo(src="/images/logo-thin.png")
   div 
     p= message 
   if stack 
     h3 Stack Trace 
     pre= stack
+  

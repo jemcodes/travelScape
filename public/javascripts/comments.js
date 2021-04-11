@@ -37,7 +37,7 @@ commentBtn.addEventListener('click', async (e) => {
   const newComment = document.createElement('p');
   const newUser = document.createElement('p');
   const newDate = document.createElement('p');
-
+  
   eachComment.setAttribute('id', 'each-comment');
   userContainer.classList.add('comments__author');
   commentContainer.classList.add('comments__content');

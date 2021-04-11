@@ -9,9 +9,6 @@ body {
 .create-form-container {
   height: 84vh;
   margin-top: 16vh;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: center; */
 }
 
 .create-form-contents {
@@ -63,7 +60,6 @@ outline: 3px solid rgb(170, 188, 216);
 
 #imageSrc {
   border: solid 1px #707070;
-  /* margin: 20px 40px 10px 40px; */
   font-family: 'Playfair Display', serif;
   padding: 10px;
   margin-bottom: 20px;
@@ -74,9 +70,6 @@ outline: 3px solid rgb(170, 188, 216);
 #imageSrc:focus {
 outline: 3px solid rgb(170, 188, 216);
 }
-
-
-
 
 .publish-button {
   margin: 5px 15px 0 10px;
