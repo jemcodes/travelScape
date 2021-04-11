@@ -16,6 +16,19 @@ h1 {
     justify-content: center;
 }
 
+.errors-container{
+  color: red;
+  display: flex;
+  justify-self: center;
+  padding-left: 22%;
+  margin-left: 100px;
+  padding-bottom: 40px;
+}
+
+.alert li{
+  list-style-type: none;
+}
+
 .log-in-contents {
     width: 80%;
     margin: 0 auto;

@@ -11,15 +11,15 @@ block content
 	h1 COME JOIN OUR ADVENTURES!
 	div(class="errors-container")
 		+validationErrorSummary(errors)
-		div(class="sign-up-container")
-			div(class="sign-up-contents")
-				form(action='/users/signup' method='post')
-					input(type='hidden' name='_csrf' value=csrfToken)
-					+field('Pen Name', 'pen_name', user.pen_name)
-					+field('Email Address', 'email', user.email)
-					+field('Password', 'password', user.password, 'password')
-					+field('Confirm Password', 'confirmPassword', '', 'password')
-					div(id="sign-up-btn-container")
-						button(type='submit' id="sign-up-btn") Hit the Road!
-						a(href='/newsfeed' id="sign-up-cancel") Cancel
-						a(href='/users/login' id="log-in-redirect") Already have an account? Log in here.
+	div(class="sign-up-container")
+		div(class="sign-up-contents")
+			form(action='/users/signup' method='post')
+				input(type='hidden' name='_csrf' value=csrfToken)
+				+field('Pen Name', 'pen_name', user.pen_name)
+				+field('Email Address', 'email', user.email)
+				+field('Password', 'password', user.password, 'password')
+				+field('Confirm Password', 'confirmPassword', '', 'password')
+				div(id="sign-up-btn-container")
+					button(type='submit' id="sign-up-btn") Hit the Road!
+					a(href='/newsfeed' id="sign-up-cancel") Cancel
+					a(href='/users/login' id="log-in-redirect") Already have an account? Log in here.
