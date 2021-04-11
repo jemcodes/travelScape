@@ -8,7 +8,7 @@ append head
 block content
 	nav(class="nav__container")
 		a(href=`/profiles/${user.id}` class="nav-item user-name-link")= user.pen_name
-		a(href=`#` class="nav-item pen-pal-link") About Us
+		a(href=`/about-us` class="nav-item pen-pal-link") About Us
 		img(src="/images/logo-thin.png" class="logo")
 		//- a(href=`/newsfeed` class="nav-item") Home
 		a(href=`/profiles/${loggedIn}` class="nav-item") My Profile
@@ -17,11 +17,12 @@ block content
 
 	.article__container-newsfeed 
 		each article in articles
-			.article__container-image
-				a(article__container-image-link href=`/articles/${article.id}`)
-					img#articleImg(src=article.imageSrc)
-			div(class='article__title')
-				a(class='article__title-link' href=`/articles/${article.id}`)= article.title
-			div(class='article__user') By: 
-				a(class='article__user-link' href=`/profiles/${article.User.id}`) #{article.User.pen_name}
-				//- a(class='article__user-link' href=`/profiles/${user.id}`) By: #{article.User.pen_name}
+			.single-article-div
+				.article__container-image
+					a(article__container-image-link href=`/articles/${article.id}`)
+						img#articleImg(src=article.imageSrc)
+				div(class='article__title')
+					a(class='article__title-link' href=`/articles/${article.id}`)= article.title
+				div(class='article__user') By: 
+					a(class='article__user-link' href=`/profiles/${article.User.id}`) #{article.User.pen_name}
+				div(class="border-bottom")
