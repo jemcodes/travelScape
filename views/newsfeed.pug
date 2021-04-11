@@ -11,7 +11,6 @@ block content
 		a(href=`/profiles/${user.id}` class="nav-item user-name-link")= user.pen_name
 		a(href=`/about-us` class="nav-item pen-pal-link") About Us
 		img(src="/images/logo-thin.png" class="logo")
-		//- a(href=`/newsfeed` class="nav-item") Home
 		a(href=`/profiles/${loggedIn}` class="nav-item") My Profile
 		form(action="/profiles/logout" method="post")
 			button(type="submit" class="nav-item") Log Out

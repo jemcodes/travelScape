@@ -1,18 +1,16 @@
 
 
 .footer-container{
-  /* border: 3px solid red; */
   box-shadow: -3px 0px 3px 2px rgba(0, 0, 0, .5);
   width: 100%;
   position: sticky;
   height: 125px;
-  background-color: #CB997E;
+  background-color: #DFC1B1;
   font-weight: bolder;
 }
 
 .developers-container{
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
 }
 
@@ -22,22 +20,14 @@ p p{
 }
 
 .footer-content-container{
-  background-color: #CB997E;
+  background-color: #DFC1B1;
   height: 50px;
   margin: 0;
   display: flex;
   flex-direction: column;
-  /* flex-direction: row; */
-  /* justify-content: space-evenly; */
   align-items: center;
 }
 
 .contact-us:hover{
   color: #FFF3EB
 }
-
-.website-clone{
-
-}
-
-

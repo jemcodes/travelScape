@@ -85,6 +85,7 @@ outline: 3px solid rgb(170, 188, 216);
   width: 50%;
   font-family: Playfair Display;
   background-color: #CB997E;
+  padding: 10px 0px;
 }
 
 #log-in-btn:hover {
