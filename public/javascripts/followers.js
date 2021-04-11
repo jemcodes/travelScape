@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
     const isFollowed = await res.json();
     if (isFollowed === 'following') {
-      followBtn.innerHTML = "Followed"
+      followBtn.innerHTML = "Unfollow"
     } else {
       followBtn.innerHTML = "Follow"
     }

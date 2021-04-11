@@ -6,7 +6,7 @@ body {
 
 .main-container {
     display: grid;
-    margin-top: 15vh;
+    margin-top: 13vh;
     grid-template-columns: 200px 4fr;
     background-color: #F7F7F7;
 }
@@ -43,6 +43,9 @@ body {
     /* border: 5px solid red; */
 }
 
+.article-div {
+    border-bottom: 2px solid red;
+}
 /* THIS IS INSIDE THE NAVBAR.CSS */
 /* .leftSide{
     display: flex;
@@ -79,6 +82,9 @@ body {
 
 .article-content {
     font-size: 1.2rem;
+    background-color: rgba(211,211,211,0.75);
+    border-radius: 5px;
+    padding: 5px;
 }
 
 li {
@@ -104,8 +110,21 @@ li {
 }
 .stamps-comments {
     display: flex;
+    justify-content: center;
+    width: 80%;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(0,0,0,.5);
+}
+
+.stamps-comments a {
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.stamps-comments img {
+    margin-right: 20px;
 }
 .commentImg {
-    width: 20px;
+    width: 40px;
 }
 

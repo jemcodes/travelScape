@@ -14,10 +14,11 @@ block content
     div.leftSide
       a(href=`/profiles/${user.id}` class="nav-item user-name-link")= user.pen_name
       input(type='hidden' value=user.id id='authorId')
-      if follow 
-        button#followBtn(type='submit') Unfollow 
-      else 
-        button#followBtn(type='submit') Follow
+      if user.id !== loggedIn
+        if follow 
+          button#followBtn(type='submit') Unfollow 
+        else 
+          button#followBtn(type='submit') Follow
       a(href=`/profiles/${user.id}/penpals` class="nav-item pen-pal-link")= `${penPalCount} Pen Pals`
     //- div(class="nav-middle-container")
     //- img(src="/images/logo-thin.png" class="logo")
@@ -42,13 +43,13 @@ block content
           li(id='profile-bio') This person has no bio.
     div(class="user-article-container")
       ul
-        each article in user.Articles 
+        each article in user.Articles
           li(): a(href=`/articles/${article.id}` class="article-title")= article.title
           li: a(href=`/articles/${article.id}`)
             img(class="article-pic" src=`${article.imageSrc}`)
           li(class="article-content")= `${article.content}...`
           li(class="stamps-comments"): a(href=`/articles/${article.id}`)= article.Comments.length
             img.commentImg(src="https://cdn2.iconfinder.com/data/icons/contact-us-50/512/Comment_message_message_reply_communication_conversation_emoji_chat-512.png")
-            =article.Comments.length
+            =article.Stamps.length
             img.commentImg(src="https://cdn3.iconfinder.com/data/icons/office-269/32/Office_Expanded_32pxl_Stamps-512.png")
   include footer.pug
