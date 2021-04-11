@@ -52,6 +52,11 @@ body{
   border-radius: 3px;
 }
 
+/* .article__container-stamps-icon{
+  display: flex;
+  justify-content: center;
+} */
+
 #articleText{
   font-size: 12pt;
   line-height: 1.5rem;
@@ -71,7 +76,7 @@ body{
 
 .article__container-icons{
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   max-width: 750px;
 	margin-top: 10px;
 }
@@ -101,6 +106,7 @@ body{
   height: 40px;
 }
 h2 {
+  padding-top: 40px;
   text-align: center;
   font-size: 1.5rem;
 }
@@ -142,8 +148,13 @@ h2 {
   border-radius: 5px;
 }
 
+/* .form__comment{
+  margin-bottom: 40px;
+} */
+
 .form__inputs{
   display: flex;
+  justify-content: center;
   width: 100%;
 }
 

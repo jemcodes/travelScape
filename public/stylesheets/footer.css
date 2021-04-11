@@ -13,9 +13,7 @@
 .developers-container{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-
-
+  justify-content: space-evenly;
 }
 
 p p{
@@ -27,11 +25,19 @@ p p{
   background-color: #CB997E;
   height: 50px;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  /* flex-direction: row; */
+  /* justify-content: space-evenly; */
+  align-items: center;
 }
 
 .contact-us:hover{
-
+  color: #FFF3EB
 }
 
+.website-clone{
+
+}
 
 

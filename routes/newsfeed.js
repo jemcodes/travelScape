@@ -4,12 +4,14 @@ const { csrfProtection, asyncHandler } = require('./utils');
 const db = require('../db/models');
 const { requireAuth } = require('../auth');
 
-
 /* GET newsfeed page. */
+router.get('/', csrfProtection, requireAuth, asyncHandler(async (req, res, next) => {
+  // console.log("hello", req.session.auth)
+  // console.log(req.session.auth.userId)
 
-router.get('/', requireAuth, csrfProtection, asyncHandler(async (req, res, next) => {
   const loggedIn = req.session.auth.userId;
-  //NEED TO ADD ORDER BY STAMP COUNT WHEN STAMP DB IS DONE. 
+  // console.log("inside /NEWSFEED", loggedIn)
+
   const articles = await db.Article.findAll({
     include: db.User,
     order: [['createdAt', 'DESC']]

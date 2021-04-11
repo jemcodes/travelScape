@@ -104,13 +104,13 @@ router.post('/signup', csrfProtection, userValidators,
   }));
 
 
-// GET for log in
-router.get('/login', csrfProtection, (req, res) => {
+// RENDERING log in page
+router.get('/login', csrfProtection, asyncHandler(async (req, res) => {
   res.render('log-in', {
     title: 'Log In',
     csrfToken: req.csrfToken(),
   });
-});
+}));
 
 router.post('/login', csrfProtection, loginValidators,
   asyncHandler(async (req, res) => {
@@ -135,6 +135,8 @@ router.post('/login', csrfProtection, loginValidators,
           // If the password hashes match, then login the user
           // and redirect them to the default route.
           loginUser(req, res, user);
+          // console.log("inside the LOGIN ROUTE!")
+          // console.log(res.session.auth.userId)
           return res.redirect('/newsfeed');
         }
       }

@@ -6,6 +6,10 @@ append head
   link(rel='stylesheet' href='/stylesheets/footer.css')
 
 block content 
+  nav(class="nav__container")
+    img(src="/images/logo-thin.png" class="logo")
+    div.rightSide
+      a(href=`/newsfeed` class="nav-item") Home
   .layout 
     .intro__container 
       h1#header1 We all have an escape. We developers, choose Travel.

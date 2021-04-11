@@ -23,7 +23,7 @@ block content
 			img#articleImg(src=article.imageSrc)
 		.article__title= article.title
 		div(class='article__user') By:
-			a(class='article__user-link' href=`/profiles/${user.id}`) #{article.User.pen_name}
+			a(class='article__user-link' href=`/profiles/${article.User.id}`) #{article.User.pen_name}
 		.article__container-content
 			p#articleText= article.content
 		div(class='article-delete-container')
@@ -54,7 +54,7 @@ block content
 				.form__inputs
 					.form__comment
 						//- input#commentBody(type="text" name="comment" placeholder="Comments? Opinions?")
-						textarea#commentBody(type="text" name="comment" placeholder="Comments? Opinions?" cols="30" rows="5")
+						textarea#commentBody(type="text" name="comment" placeholder="Comments? Opinions?" cols="45" rows="4")
 					.form__button
 						button#commentBtn(type='submit') SHARE
 		h2 Comments
