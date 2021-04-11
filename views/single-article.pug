@@ -23,7 +23,7 @@ block content
 			img#articleImg(src=article.imageSrc)
 		.article__title= article.title
 		div(class='article__user') By:
-			a(class='article__user-link' href=`/profiles/${user.id}`) #{article.User.pen_name}
+			a(class='article__user-link' href=`/profiles/${article.User.id}`) #{article.User.pen_name}
 		.article__container-content
 			p#articleText= article.content
 		div(class='article-delete-container')
