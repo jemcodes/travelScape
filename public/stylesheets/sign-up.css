@@ -99,11 +99,11 @@ outline: 3px solid rgb(170, 188, 216);
   margin: 5px 15px 0 10px;
   width: 50%;
   font-family: Playfair Display;
-  background-color: #D3CACA;
+  background-color: #CB997E;
 }
 
 #sign-up-btn:hover {
-  background-color: #FFF3EB;
+  background-color: #7BA5B8;
 }
 
 #sign-up-cancel {
