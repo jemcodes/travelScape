@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 body{
   box-sizing: border-box;
-  font-family: Playfair Display;
+  font-family: 'Playfair Display', serif;
   background-color: #F7F7F7;
   overflow-x: hidden;
 }

@@ -5,10 +5,7 @@ body{
   font-family: 'Playfair Display', serif;
   background-color: #F7F7F7;
 }
-/* .logo {
-  height: 100%;
-  width: auto;
-} */
+
 .article__container{
   width: 90%;
   margin: 15vh auto 0;

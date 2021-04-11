@@ -1,16 +1,13 @@
 extends layout.pug 
 
-append head 
-  //- link(rel='stylesheet' href='/stylesheets/reset.css')
+append head
   link(rel='stylesheet' href='/stylesheets/navbar.css')
   link(rel='stylesheet' href='/stylesheets/profile.css')
   link(rel='stylesheet' href='/stylesheets/footer.css')
   script(type='text/javascript' src='/javascripts/followers.js' defer)
 
 block content 
-  //- THIS IS THE CURRENT UNIFORM NAV BAR.
   nav(class="nav__container")
-    //- div(class="nav-left-container")
     div.leftSide
       a(href=`/profiles/${user.id}` class="nav-item user-name-link")= user.pen_name
       input(type='hidden' value=user.id id='authorId')
@@ -20,9 +17,7 @@ block content
         else 
           button#followBtn(type='submit') Follow
       a(href=`/profiles/${user.id}/penpals` class="nav-item pen-pal-link")= `${penPalCount} Pen Pals`
-    //- div(class="nav-middle-container")
     img(src="/images/logo-thin.png" class="logo")
-    //- div(class="nav-right-container")
     div.rightSide
       a(href=`/newsfeed` class="nav-item") Home
       a(href=`/articles/create` class="nav-item") Create an Article

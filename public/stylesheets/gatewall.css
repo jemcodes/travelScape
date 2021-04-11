@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 body {
     background-image: url("https://images.unsplash.com/photo-1515622472995-1a06094d2224?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80");
     background-position: top center;
@@ -57,7 +58,7 @@ body {
     padding: 15px 32px;
     text-align: center;
     font-size: 25px;
-    font-family: Playfair Display;
+    font-family: 'Playfair Display', serif;
 }
 
 #make-passport-btn:hover {
@@ -76,7 +77,7 @@ body {
     padding: 15px 32px;
     text-align: center;
     font-size: 25px;
-    font-family: Playfair Display;
+    font-family: 'Playfair Display', serif;
 }
 
 #use-passport-btn:hover {
@@ -95,7 +96,7 @@ body {
     padding: 15px 32px;
     text-align: center;
     font-size: 25px;
-    font-family: Playfair Display;
+    font-family: 'Playfair Display', serif;
 }
 
 #demo-user-btn:hover {

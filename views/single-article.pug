@@ -40,11 +40,11 @@ block content
 				//- button#stampButton(class="score") Stamp
 				if isStamped
 					//- button#stampButton(type='submit') Stamped
-					img(id='like' class=`${article.id} is-stamped` src='https://www.syracuse.com/resizer/iTVUStx297EuY1A26zkFyUMPtH8=/1280x0/smart/arc-anglerfish-arc2-prod-advancelocal.s3.amazonaws.com/public/KJK724T5GBFZHMUUF7EVRWXLZE.png')
+					img(id='like' class=`${article.id} is-stamped` src='/images/liked.jpeg')
 					span(id='stamp-count')= `${stampNum} Stamps`
 				else 
 					//- button#stampButton(type='submit') Stamp
-					img(id='like' class=`${article.id}` src='https://upload.wikimedia.org/wikipedia/commons/e/e6/Swedish_stamp_1886_10_%C3%96re_POST.054078.jpg')
+					img(id='like' class=`${article.id}` src='/images/unlikedBW.jpg')
 					span(id='stamp-count')= `${stampNum} Stamps`	
 				//- number of stamps add here
 		.form

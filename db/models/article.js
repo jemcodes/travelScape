@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     Article.belongsTo(models.User, { foreignKey: "userId" })
     Article.hasMany(models.Comment, { foreignKey: "articleId", onDelete: "CASCADE" })
-    Article.hasMany(models.Stamp, { foreignKey: "articleId" })
+    Article.hasMany(models.Stamp, { foreignKey: "articleId", onDelete: "CASCADE" })
   };
   return Article;
 };

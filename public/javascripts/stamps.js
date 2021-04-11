@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const stamped = await res.json();
     if (!stamped.status) {
-      stampImage.src = 'https://upload.wikimedia.org/wikipedia/commons/e/e6/Swedish_stamp_1886_10_%C3%96re_POST.054078.jpg'
+      stampImage.src = '/images/unlikedBW.jpg'
       stampNumber -= 1;
       stampNum.innerHTML = `${stampNumber} Stamps`
     } else {
-      stampImage.src = 'https://www.syracuse.com/resizer/iTVUStx297EuY1A26zkFyUMPtH8=/1280x0/smart/arc-anglerfish-arc2-prod-advancelocal.s3.amazonaws.com/public/KJK724T5GBFZHMUUF7EVRWXLZE.png'
+      stampImage.src = '/images/liked.jpeg'
       stampNumber += 1;
       stampNum.innerHTML = `${stampNumber} Stamps`
       // console.log(Number.isInteger(stampNum))
