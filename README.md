@@ -11,6 +11,8 @@
 
 [Key Features](#Key-Features)
 
+[Visit TravelScape](https://travelscape-app.herokuapp.com/)
+
 [Database Schema](https://github.com/jemcodes/travelScape/wiki/Database-Schema)
 
 [Frontend Routes](https://github.com/jemcodes/travelScape/wiki/Front-End-Routes)
@@ -19,9 +21,7 @@
 
 [Details](#Details)
 
-[Visit TravelScape](#Visit-TravelScape)
-
-[Technical Abilities](#Technical-Abilities)
+[Feature Spotlight](#Feature-Spotlight)
 
 [Code Snippets](#Code-Snippets)
 
@@ -31,43 +31,39 @@
 
 ---
 ### Technologies
-*(List of techs/languages/plugins/APIs used)*
-
-*(List the technologies used at the top of your README for increased visibility)*
-
-*(Include list of any third party APIs you used in the project)*
 
 * Express
 * JavaScript
 * Pug
 * CSS
 * Sequelize
+* PostgreSQL
+* Heroku
+* VSCode
 * Figma
 * Adobe Photoshop
 * Adobe XD
-* Heroku
-* What else do we want to include?
+* DrawSql
+* npm
 
 ### Key Features
 * Write and post articles
-* Like articles
-* Add comments
-* See your followers
-
+* Add comments, likes and followers dynamically
 
 ### Details
 (*Summary of what the project is and what it does*)
-*“We are all travelers in the wilderness of this world, and the best we can find in our travels is an honest friend.” ― Robert Louis Stevenson*
+
+>“We are all travelers in the wilderness of this world, and the best we can find in our travels is an honest friend.” ― Robert Louis Stevenson*
 
 TravelScape opens up communication between travelers near and far. Here, your vacation stories come to life and inspire adventures for the friends you make along the way. From tales of the well-traveled to dream vacations shared by the wanderer-at-heart, our goal is that every page will take you on a new journey.
 
 ### Visit TravelScape
 https://travelscape-app.herokuapp.com/
 
-### Technical Abilities
-*(~2 features that show off your technical abilities. Discuss both the challenges faced and your brilliant solutions. Call this section something like "Feature spotlight")*
+### Feature Spotlight
+*(EUNICE    ~2 features that show off your technical abilities. Discuss both the challenges faced and your brilliant solutions. Call this section something like "Feature spotlight")*
 
-*(Include nice screenshots or GIFs to show and demonstrate features of your application)*
+*(EUNICE   Include nice screenshots or GIFs to show and demonstrate features of your application)*
 *Screenshots of your app in action (once completed)*
 * Maybe the dynamic stamp/comment stuff?
 * Authentication process? 
@@ -75,6 +71,16 @@ https://travelscape-app.herokuapp.com/
 * Whatever else the group decides :)
 * Might be a good place for a couple of screen clippings of code/functionality - difference between stamped v. unstamped
 
+* User Authentication:
+  - We initially implemented both JSON web token and session authentication. Ultimately due to specifications on the project itself we chose to go with session authentication. 
+* Dynamic User Functionality:
+  - Stamps: Hurdles we experienced were two fold. The first issue we dealt with 
+
+  - Comments: Hurdles we experienced were getting the new comments to match the comments that were already rendered. 
+
+  - Followers: 
+
+* 
 ### Code Snippets
 *(Code snippets to highlight your best code (markdown code snippets, NOT screenshots) - these should likely go in the feature spotlight to demonstrate what we're talking about there)*
 
