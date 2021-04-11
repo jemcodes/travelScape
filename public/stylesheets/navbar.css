@@ -10,6 +10,7 @@
   padding: 0 38px;
   position: fixed;
   top: 0;
+  z-index: 1;
   /* border-bottom: 2px solid black; */
   box-shadow:  2px 2px 2px 2px rgba(75, 70, 70, 0.7);
   /* border: solid 5px red; */
