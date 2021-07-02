@@ -171,13 +171,18 @@ router.post('/:id(\\d+)/delete', asyncHandler(async (req, res, next) => {
     const article = await db.Article.findByPk(articleId);
     // console.log("THIS IS THE ARTICLE",article)
     if (article) {
-        await article.destroy();
-        res.status(204).end();
+        await db.Article.destroy({
+            where: {
+                id: articleId
+            }
+        });
+        // res.status(204).end();
+        res.redirect('/newsfeed')
     } else {
         next(articleNotFoundError(articleId));
     }
     // MAY NEED TO BE REVISITED
-    res.redirect('/newsfeed') // OR PROFILE ROUTE
+    // OR PROFILE ROUTE
 }));
 
 // POSTING A STAMP ON AN ARTICLE
