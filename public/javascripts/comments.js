@@ -71,6 +71,7 @@ commentBtn.addEventListener('click', async (e) => {
 
   commentsContainer.prepend(eachComment);
 
+  location.reload()
 
   // console.log(response)
 
