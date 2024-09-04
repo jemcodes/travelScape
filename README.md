@@ -10,8 +10,6 @@
 
 [Key Features](#Key-Features)
 
-[Visit TravelScape](https://travelscape-app.herokuapp.com/)
-
 [Database Schema](https://github.com/jemcodes/travelScape/wiki/Database-Schema)
 
 [Frontend Routes](https://github.com/jemcodes/travelScape/wiki/Front-End-Routes)
@@ -58,9 +56,6 @@
 >“We are all travelers in the wilderness of this world, and the best we can find in our travels is an honest friend.” ― Robert Louis Stevenson*
 
 Our TravelScape Full-Stack Project opens up communication between travelers near and far. Here, your vacation stories come to life and inspire adventures for the friends you make along the way. From tales of the well-traveled to dream vacations shared by the wanderer-at-heart, our goal is that every page will take you on a new journey.
-
-### Visit TravelScape
-https://travelscape-app.herokuapp.com/
 
 * Post, read, and delete articles
 * Add comments, likes and followers dynamically
